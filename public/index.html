@@ -617,7 +617,7 @@ async function syncNow(manual){
   var payload={projects:S.projects,expenses:S.expenses,tomb:S.tomb||{},cfg:S.cfg||{},cfgU:S.cfgU||0};
   var res=await fetch('/api/sync',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify(payload)});
   if(res.status===401){setSS('Wrong sync key.');SYNCING=false;return}
-  if(!res.ok)throw new Error('HTTP '+res.status);
+  if(!res.ok){var er='';try{er=(await res.json()).error||''}catch(x){}setSS('Server error'+(er?': '+er:' ('+res.status+')')+'. Saved on this device and will retry.');SYNCING=false;return}
   var remote=await res.json();
   var m=mergeStates(S,remote);
   S.projects=m.projects;S.expenses=m.expenses;S.tomb=m.tomb;S.cfg=m.cfg;S.cfgU=m.cfgU;
