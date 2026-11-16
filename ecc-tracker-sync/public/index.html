@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EC Tracker">
+<title>EC Project and Finance Tracker</title>
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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kyVLVq78VlUDNI/L2bbNKD3mmKMPnzChvLzMcZwf1qz536effbF0GaEkGonouv6TceN+d8XlejoV1CLZjs3OzIWMv4o7JDs8JqRp9973oGEYlZUVHWppnudhjIPB4A03ztxvv32HDx/uOg6lVAvHXpn98u+vnM49C57ndcZlM8kFoiiWlJQsXLT4lF+d/tyzT40fP17PD0MCFzEtfrPeS4QQRXHjxk0zrrmOUdpOcLV8IAgtyx49epdrr7166bIvm5ubO3tr29jAgUDg9ttuOfHESbIkMcAggHybv1r+9aOPPvbue+/run79H6/bZfTOTU3NbYIYlDKIxI8XLrIsU1UDAJDc6DEtq6Ks7K677vjpUT8FQACA8v6prmMsWfLpAw88+PHCRZSyG274Q7SoON7U0Is+EAihaVncIZ5DVZBlua6u7pFHHv/rHXeYuh6OFb3z9puXX/F7WVZEUchTQHO3WSwW27Rp89nnnPvqKy+VV1Q4ttWlPsQ5UO8DiCuVb771dmdJnVyrSKXShxxyEEb466+/zvPMEMK777pz4vHH1dfXG7q+NS0Ewn333fvJJx5/6ulnFi1afPrppyUSibbReAYQhow4X361XBAEltNlwcdYhTTtmaef2H3PfdLJRsa2Kl0Iof878ogjjjj8nnvu3bhx08SJE/VUInfErSe6eR6DAAghWii04I03L7v04orKynU//njlVTNEURQE3F1bxPO8SDi0bt36q6bPmDXruXx0Yv7AsEMuuv2GSSQc3tZMhe1t+FAoZFnW+vUbBEHIvVhcszl76pTjjv1ZTU2NKEltBKKuGyY0p04967TTTiWeB1jb/oIMAEEQUqnkhg0bRFFklOVmP/F44qorf7f7nvskmuslSWpzQDqZxBhPn36lbVmmoSOEej2Mmmc4RRLFmpqaRYuXnH7Gr/9y6221tbVFRUUd8h4IQGYaaYd363peUVHs3ffef/7553977vnpZHNuQZbJiOj9AHJrnIhm/dcBAQBM02xqasIY514vzq4nTTrBtDo2E7hdlk7rHiGM0vbChLPGeDwRj3fNLTzPKy4umnTC8Z5jCqLYIaAZY3o63aeh02x3Yq67JWTlypUrli+bP/+NaDTameSijMXj8UQikUwmO2MwhJBgMPjoY/9saqwTJTH3pmQA1G8BVASRbTum2YW45QKlqKhoxIjhruNC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">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f4f4" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800&display=swap">
+<style>
+:root{--bg:#f2f3f5;--card:#fff;--text:#161b22;--muted:#6a7482;--line:#e0e3e8;--accent:#9a6b00;--accentbg:#fff3d1;--good:#16794c;--bad:#b3261e;--input:#f7f8fa;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1217;--card:#171d25;--text:#eef1f5;--muted:#8d97a6;--line:#262e39;--accent:#f0b429;--accentbg:#2b2410;--good:#4cc38a;--bad:#ff7b72;--input:#0f141a}}
+:root[data-theme="dark"]{--bg:#0e1217;--card:#171d25;--text:#eef1f5;--muted:#8d97a6;--line:#262e39;--accent:#f0b429;--accentbg:#2b2410;--good:#4cc38a;--bad:#ff7b72;--input:#0f141a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent;padding-bottom:84px}
+.num{font-variant-numeric:tabular-nums}
+header{padding:18px 16px 6px;max-width:640px;margin:0 auto}
+header h1{margin:0;font-size:22px;letter-spacing:-.01em}
+header p{margin:2px 0 0;color:var(--muted);font-size:14px}
+main{max-width:640px;margin:0 auto;padding:8px 16px}
+.hero{background:var(--accentbg);border:1px solid var(--accent);border-radius:16px;padding:16px;margin-bottom:12px}
+.hero small{color:var(--muted);display:block}
+.hero b{font-size:30px;letter-spacing:-.02em;color:var(--accent)}
+.hero .sub{display:flex;justify-content:space-between;margin-top:8px;font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.stat small{color:var(--muted);display:block;font-size:13px}
+.stat b{font-size:18px}
+.good{color:var(--good)}.bad{color:var(--bad)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;cursor:pointer}
+.card .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.card .t{font-weight:600}
+.card .s{color:var(--muted);font-size:14px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--text);font-weight:600}
+.chip{font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip.on{border-color:var(--accent);color:var(--accent)}
+.empty{text-align:center;color:var(--muted);padding:36px 12px}
+h3{margin:18px 0 8px;font-size:15px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;background:none;border:0;color:var(--muted);font:inherit;font-size:11.5px;padding:8px 2px;border-radius:10px}
+nav button.on{color:var(--accent);font-weight:700}
+.fab{position:fixed;right:16px;bottom:calc(74px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--bg);border:0;border-radius:99px;padding:13px 20px;font:inherit;font-weight:700;z-index:6;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#sheet{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:20;align-items:flex-end;justify-content:center}
+#sheet.open{display:flex}
+.panel{background:var(--bg);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+.panel h2{margin:0 0 8px;font-size:19px}
+label{display:block;margin:10px 0 0;font-size:13px;color:var(--muted)}
+input,select,textarea{width:100%;margin-top:4px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--input);color:var(--text);font:inherit;font-size:16px}
+.row{display:grid;grid-template-columns:1fr 110px 40px;gap:6px;margin-top:6px}
+.row input{margin:0}
+.row button{background:none;border:1px solid var(--line);border-radius:10px;color:var(--muted);font:inherit}
+.btn{display:block;width:100%;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-weight:600;margin-top:10px}
+.btn.p{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn.d{color:var(--bad)}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:12px;font-size:14px}
+.sum div{display:flex;justify-content:space-between;padding:2px 0}
+.chk{display:flex;align-items:center;gap:10px;color:var(--text);font-size:15px;margin-top:14px}
+.chk input{width:22px;height:22px;margin:0}
+.tools{display:flex;gap:8px}
+.tools .btn{margin-top:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}a.btn{text-align:center;text-decoration:none}
+.pri{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px}.pri summary{padding:12px 14px;font-weight:600;cursor:pointer}.pri .tbl{border:0;margin:0;border-radius:0}.sum .pri{border:0;margin:0;background:none}.sum .pri summary{padding:4px 0}
+.seg{display:flex;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:3px;margin-bottom:12px}.seg button{flex:1;background:none;border:0;border-radius:9px;padding:9px 4px;font:inherit;font-size:14px;color:var(--muted)}.seg button.on{background:var(--accentbg);color:var(--accent);font-weight:700}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;font-size:14px}.tbl td{padding:9px 12px;border-bottom:1px solid var(--line)}.tbl tr:last-child td{border-bottom:0}.tbl td:not(:first-child){text-align:right}.tbl td:last-child{font-weight:600}
+:root{--bg:#f4f4f4;--card:#fff;--text:#000;--muted:#6a6a6a;--line:#d9d9d9;--accent:#000;--accentbg:#ececec;--good:#000;--bad:#c62828;--input:transparent;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#0b0b0b;--text:#fff;--muted:#8a8a8a;--line:#232323;--accent:#fff;--accentbg:#151515;--good:#fff;--bad:#ff6b5e;--input:transparent;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--card:#0b0b0b;--text:#fff;--muted:#8a8a8a;--line:#232323;--accent:#fff;--accentbg:#151515;--good:#fff;--bad:#ff6b5e;--input:transparent;color-scheme:dark}
+html{overscroll-behavior:none;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button,a.btn,summary{touch-action:manipulation}
+header{padding:26px 16px 10px}
+header h1{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:19px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+header h1 span{color:transparent;-webkit-text-stroke:1px var(--text)}
+header p{text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--muted)}
+h2,h3,.hero b,.stat b,.card .t,.card b{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
+h3{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px;font-weight:600}
+label{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.chk{text-transform:none;letter-spacing:0}
+.hero{background:var(--text);border:0;border-radius:2px;padding:22px 20px}
+.hero small{color:var(--bg);opacity:.6;text-transform:uppercase;letter-spacing:.16em;font-size:11px}
+.hero b{color:var(--bg);font-size:40px;font-weight:700;letter-spacing:-.03em}
+.hero .sub{color:var(--bg);opacity:.7}
+.stat,.card,.sum,.tbl,.pri,.seg{border-radius:2px}
+.stat small{text-transform:uppercase;letter-spacing:.1em;font-size:11px}
+.stat b{font-size:19px}
+.card{padding:16px}
+@media (hover:hover){.card:hover{border-color:var(--text)}}
+.chip{border-radius:2px;text-transform:uppercase;letter-spacing:.1em;font-size:10px}
+.chip.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+input:not([type=checkbox]),select{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 0;background:transparent}
+textarea{border-radius:2px;background:transparent;padding:10px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--text)}
+.chk input{accent-color:var(--text)}
+.btn,.fab,.row button{border-radius:2px;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:600}
+.btn.p,.fab{background:var(--text);color:var(--bg);border-color:var(--text)}
+.fab{padding:14px 22px;box-shadow:none}
+.panel{border-radius:2px 2px 0 0;border:1px solid var(--line);border-bottom:0}
+nav{background:var(--bg)}
+nav button{text-transform:uppercase;letter-spacing:.14em;font-size:11px;border-radius:0}
+nav button.on{color:var(--text);box-shadow:inset 0 2px 0 var(--text)}
+.seg{background:transparent}.seg button{border-radius:0;text-transform:uppercase;letter-spacing:.1em;font-size:12px}.seg button.on{background:var(--text);color:var(--bg)}
+.pri summary{text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.tbl td{padding:11px 12px}
+.empty{text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+@media (min-width:900px){
+ body{padding-left:230px;padding-bottom:40px}
+ nav{top:0;bottom:auto;right:auto;width:230px;height:100%;flex-direction:column;justify-content:flex-start;padding:96px 0 24px;border-top:0;border-right:1px solid var(--line)}
+ nav::before{content:"EC";position:absolute;top:28px;left:24px;font:700 24px "Space Grotesk",Inter,sans-serif;letter-spacing:.24em;color:var(--text)}
+ nav button{text-align:left;padding:15px 24px;font-size:12px}
+ nav button.on{box-shadow:inset 3px 0 0 var(--text);background:var(--accentbg)}
+ header,main{max-width:1040px;padding-left:40px;padding-right:40px}
+ header h1{font-size:24px}
+ main{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+ main>*{grid-column:1/-1}
+ main>.card{grid-column:auto;margin-bottom:0}
+ .grid{grid-template-columns:repeat(4,1fr)}
+ .hero b{font-size:56px}
+ .fab{right:40px;bottom:40px}
+ #sheet{align-items:center}
+ .panel{border-radius:2px;border:1px solid var(--line);max-width:600px;max-height:88%}
+}
+@media (max-width:520px){nav button{letter-spacing:.04em;font-size:10px;padding:8px 1px}}
+.fs{scroll-margin-top:56px;border:1px solid var(--line);border-radius:2px;margin:16px 0;background:var(--card)}
+.fh{display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid var(--line);font:700 12px "Space Grotesk",Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.fh i{font-style:normal;font-weight:500;color:var(--muted)}
+.fb{padding:2px 14px 14px}
+.fb .sum{background:var(--bg);border-radius:2px}
+.fb .btn{margin-top:12px}
+.cap{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.dayc{border:1px solid var(--line);border-radius:2px;padding:2px 12px 14px;margin-top:14px;background:var(--bg)}
+.jump{position:sticky;top:0;z-index:3;display:flex;gap:6px;overflow-x:auto;padding:10px 0;margin-bottom:4px;background:var(--bg);border-bottom:1px solid var(--line)}
+.jump button{flex:none;background:none;border:1px solid var(--line);color:var(--text);padding:7px 11px;border-radius:2px;font:600 11px Inter,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+
+/* agency look: heavy tight type, row lists, alternating light and dark panels, pill buttons */
+:root{--bg:#f1f1ee;--card:#f1f1ee;--text:#0b0b0b;--muted:#7a7a76;--line:#d8d8d3;--accent:#0b0b0b;--accentbg:#e6e6e2;--good:#0b0b0b;--bad:#c62828;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0b0b;--card:#121212;--text:#f4f4f1;--muted:#8a8a86;--line:#262626;--accent:#f4f4f1;--accentbg:#1a1a1a;--good:#f4f4f1;--bad:#ff6b5e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0b0b;--card:#121212;--text:#f4f4f1;--muted:#8a8a86;--line:#262626;--accent:#f4f4f1;--accentbg:#1a1a1a;--good:#f4f4f1;--bad:#ff6b5e;color-scheme:dark}
+.pri{--bg:#0b0b0b;--card:#0b0b0b;--text:#f4f4f1;--muted:#8a8a86;--line:#2a2a2a;background:#0b0b0b;color:#f4f4f1;border-color:#0b0b0b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pri{--bg:#f1f1ee;--card:#f1f1ee;--text:#0b0b0b;--muted:#6f6f6b;--line:#d6d6d1;background:#f1f1ee;color:#0b0b0b;border-color:#f1f1ee}}
+:root[data-theme="dark"] .pri{--bg:#f1f1ee;--card:#f1f1ee;--text:#0b0b0b;--muted:#6f6f6b;--line:#d6d6d1;background:#f1f1ee;color:#0b0b0b;border-color:#f1f1ee}
+h1,h2,h3,.hero b,.stat b,.card .t,.fh,.chip,.btn,nav button,.seg button,.jump button{font-family:"Inter Tight",Inter,system-ui,sans-serif}
+header{padding:30px 16px 8px}
+header h1{font-size:40px;font-weight:800;letter-spacing:-.05em;line-height:.9;text-transform:uppercase}
+header h1 span{color:var(--muted);-webkit-text-stroke:0}
+header p{max-width:34ch;font-size:10px;line-height:1.5;letter-spacing:.1em;margin-top:10px}
+h3{font-size:26px;font-weight:800;line-height:1;letter-spacing:-.04em;text-transform:uppercase;color:var(--text);margin:38px 0 14px}
+.hero{border-radius:2px;padding:26px 22px}
+.hero small::before{content:"\2022  "}
+.hero b{font-size:58px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.stat{border:0;border-top:1px solid var(--line);background:transparent;border-radius:0;padding:14px 2px}
+.stat b{font-size:22px;font-weight:700;letter-spacing:-.03em}
+main{counter-reset:rowno}
+.card{border:0;border-top:1px solid var(--line);background:transparent;border-radius:0;padding:18px 2px 16px;margin-bottom:0}
+.card::before{counter-increment:rowno;content:counter(rowno,decimal-leading-zero);display:block;font:800 12px "Inter Tight",Inter,sans-serif;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+@media (hover:hover){.card:hover{border-color:var(--line);border-top-color:var(--text)}}
+.fs{border-radius:0}
+.fh{padding:18px 16px;gap:16px;font-size:12px;font-weight:700;letter-spacing:.14em}
+.fh i{font:800 32px/1 "Inter Tight",Inter,sans-serif;letter-spacing:-.05em;color:var(--muted)}
+.btn,.fab,.row button,.jump button,.seg,.seg button,.chip{border-radius:999px}
+.btn{font-size:12px;letter-spacing:.1em;padding:15px}
+.fab{padding:15px 24px}
+.panel h2{font-size:30px;font-weight:800;letter-spacing:-.05em;line-height:1;text-transform:uppercase}
+nav button{font-weight:600;letter-spacing:.12em}
+@media (min-width:900px){nav::before{content:"EC CINE";font:800 20px "Inter Tight",Inter,sans-serif;letter-spacing:-.02em}header h1{font-size:64px}.hero b{font-size:84px}}
+</style>
+</head>
+<body>
+<header><h1>EC <span>Cine</span></h1><p id="sub">Cinematic premium camera and marketing works. Video agency, 2020. Project and finance tracker.</p></header>
+<main id="main"></main>
+<button class="fab" id="fab" onclick="add()">+ New</button>
+<nav>
+<button data-t="home" onclick="go('home')">Overview</button>
+<button data-t="work" onclick="go('work')">Work</button>
+<button data-t="free" onclick="go('free')">Freelance</button>
+<button data-t="pend" onclick="go('pend')">Pending Dates</button>
+<button data-t="give" onclick="go('give')">Giving</button>
+</nav>
+<div id="sheet" onclick="if(event.target===this)closeSheet()"><div class="panel" id="panel"></div></div>
+<script>
+var armed='',W='proj',M='',SORT='new',KEY='ecc_books_v1',S={projects:[],expenses:[]},tab='home',D=null,isNew=false,kind='';
+try{var r=localStorage.getItem(KEY);if(r)S=JSON.parse(r)}catch(e){}
+function mig(){S.tomb=S.tomb||{};S.projects.forEach(function(p){if(p.status==='Availed')p.status='Booked';if(p.status==='Completed')p.status='Complete';fixSt(p)})}
+mig();
+function hash(t){var h=5381;for(var i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return String(h)}
+function stamp(list){(list||[]).forEach(function(r){var c={};Object.keys(r).forEach(function(k){if(k!=='_u'&&k!=='_hash')c[k]=r[k]});var h=hash(JSON.stringify(c));if(r._hash!==h){r._hash=h;r._u=Date.now()}})}
+function save(){S.tomb=S.tomb||{};stamp(S.projects);stamp(S.expenses);var ch=JSON.stringify(S.cfg||{});if(S._cfgh!==ch){S._cfgh=ch;S.cfgU=Date.now()}try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}schedSync()}
+function $(s){return document.querySelector(s)}
+function uid(){return Math.random().toString(36).slice(2,9)}
+function inM(d){return !M||(d||'').slice(0,M.length)===M}
+function today(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function fmt(n){return new Intl.NumberFormat('en-PH',{style:'currency',currency:'PHP'}).format(n||0)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sum(a,f){return a.reduce(function(t,x){return t+(+f(x)||0)},0)}
+function itemsCost(p){return sum(p.items,function(i){return i.cost})}
+function linked(p){return sum(S.expenses.filter(function(e){return e.pid===p.id}),function(e){return e.amt})}
+function cost(p){return itemsCost(p)+linked(p)}
+function availed(p){return ['Booked','Confirmed','Shoot Complete','Complete'].indexOf(p.status)>=0}
+function tithe(p){return availed(p)?(+p.quote||0)*0.1:0}
+
+function totals(){
+ var av=S.projects.filter(function(p){return availed(p)&&!p.f&&share(p)>0});
+ var rev=sum(av,sq);
+ var rec=sum(av,sr);
+ var costs=sum(av,function(p){return itemsCost(p)*share(p)})+sum(S.expenses.filter(function(e){var q=S.projects.filter(function(x){return x.id===e.pid})[0];return inM(e.date)&&!(q&&q.f)&&(!q||availed(q))}),function(e){return e.amt});
+ var tt=rev*0.1, given=sum(av.filter(function(p){return p.tithe}),function(p){return tithe(p)*share(p)});
+ var off=rev*0.1, offGiven=sum(av.filter(function(p){return p.offering}),function(p){return tithe(p)*share(p)});
+ var pool=rev*0.4;
+ return{rev:rev,rec:rec,out:rev-rec,costs:costs,tt:tt,given:given,left:tt-given,off:off,offGiven:offGiven,extra:rev*0.1,pay:rev*0.3,pool:pool,capital:pool-costs,n:av.length,sp:split(pool,costs,rev*0.1,rev*0.3)}
+}
+
+function go(t){tab=t;render()}
+function render(){
+ document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.t===tab)});
+ var bn=attn().filter(function(x){return (x.k==='q'&&x.due)||x.k==='r'||new Date().getHours()>=21}).length;
+ document.querySelector('nav button[data-t="work"]').textContent=bn?'Work ('+bn+')':'Work';
+ var pc=S.projects.filter(isPd).length;
+ document.querySelector('nav button[data-t="pend"]').textContent=pc?'Pending Dates ('+pc+')':'Pending Dates';
+ $('#fab').style.display=(tab==='home'||tab==='give'||tab==='pend'||(tab==='work'&&W==='tasks'))?'none':'block';
+ $('#fab').textContent=(tab==='work'&&W==='proj')?'+ New project':tab==='free'?'+ New freelance':'+ New expense';
+ $('#main').innerHTML=tab==='home'?home():tab==='give'?giveTab():tab==='pend'?pendTab():tab==='free'?frSum()+projList(true):workTab();
+}
+function home(){
+ var t=totals();
+ var h=ctrl()+'<div class="hero"><small>Total booked, '+plabel()+' ('+t.n+')</small><b class="num">'+fmt(t.rev*0.8)+'</b><div class="sub"><span>Received '+fmt(t.rec*0.8)+'</span><span>To collect '+fmt((t.rev-t.rec)*0.8)+'</span></div></div>'+yearBox()+bookedBox()+alloc(t);
+ h+='<div class="grid">'+
+ st('Tithe given',fmt(t.given)+' of '+fmt(t.tt))+
+ st('Offering given',fmt(t.offGiven)+' of '+fmt(t.off))+
+ st('Expenses (from capital)',fmt(t.costs))+
+ st('Capital left after costs',fmt(t.sp.capL),t.sp.over>0?'bad':'good')+'</div>';
+ h+=freeHome();
+ h+=catHome()+listHome();
+ h+=syncBox();
+ h+='<h3>Backup</h3><p class="s" style="color:var(--muted);font-size:14px;margin:0 0 8px">Data is saved on this device only. Export a copy now and then.</p><div class="tools"><button class="btn" onclick="exp()">Export</button><button class="btn" onclick="imp()">Import</button></div>';
+ return h;
+}
+function mlabel(m){var a=m.split('-');return new Date(+a[0],+a[1]-1,1).toLocaleString('en-PH',{month:'long',year:'numeric'})}
+function ctrl(){return ctrl2();
+ var ms={};S.projects.forEach(function(p){if(p.date&&availed(p))ms[p.date.slice(0,7)]=1});S.expenses.forEach(function(e){if(e.date&&ec(e))ms[e.date.slice(0,7)]=1});
+ var list=Object.keys(ms).sort().reverse();
+ if(M&&!ms[M])list.unshift(M);
+ return '<label>Period<select onchange="M=this.value;render()"><option value="">All time</option>'+list.map(function(m){return '<option value="'+m+'"'+(M===m?' selected':'')+'>'+mlabel(m)+'</option>'}).join('')+'</select></label><div style="height:12px"></div>';
+}
+function sorter(){return function(a,b){
+ if(SORT==='old')return (a.date||'').localeCompare(b.date||'');
+ if(SORT==='high')return (+b.quote||0)-(+a.quote||0);
+ if(SORT==='low')return (+a.quote||0)-(+b.quote||0);
+ if(SORT==='az')return (a.client||'').localeCompare(b.client||'');
+ return (b.date||'').localeCompare(a.date||'')}}
+function sortCtl(){
+ var o=[['new','Newest first'],['old','Oldest first'],['high','Highest quote'],['low','Lowest quote'],['az','Client A to Z']];
+ return '<label>Sort by<select onchange="SORT=this.value;render()">'+o.map(function(x){return '<option value="'+x[0]+'"'+(SORT===x[0]?' selected':'')+'>'+x[1]+'</option>'}).join('')+'</select></label><div style="height:10px"></div>';
+}
+function catHome(){
+ var cats={},h='<h3>Expenses by category</h3>';
+ S.expenses.forEach(function(e){if(inM(e.date)&&ec(e))cats[e.cat]=(cats[e.cat]||0)+(+e.amt||0)});
+ var ks=Object.keys(cats).sort(function(a,b){return cats[b]-cats[a]});
+ h+=ks.length?'<table class="tbl num">'+ks.map(function(k){return '<tr><td>'+esc(k)+'</td><td>'+fmt(cats[k])+'</td></tr>'}).join('')+'</table>':'<p style="color:var(--muted);font-size:14px">No expenses in this period.</p>';
+ if(!M){
+  var ms={};
+  S.projects.forEach(function(p){var k=(p.date||'').slice(0,7);if(k&&availed(p)){ms[k]=ms[k]||{q:0,e:0};ms[k].q+=+p.quote||0}});
+  S.expenses.forEach(function(e){var k=(e.date||'').slice(0,7);if(k&&ec(e)){ms[k]=ms[k]||{q:0,e:0};ms[k].e+=+e.amt||0}});
+  var mk=Object.keys(ms).sort().reverse();
+  if(mk.length)h+='<h3>By month</h3><table class="tbl num"><tr style="color:var(--muted)"><td>Month</td><td>Quotes</td><td>Expenses</td></tr>'+mk.map(function(k){return '<tr><td>'+mlabel(k)+'</td><td>'+fmt(ms[k].q)+'</td><td>'+fmt(ms[k].e)+'</td></tr>'}).join('')+'</table>';
+ }
+ return h;
+}
+var OV='proj';
+function listHome(){
+ var f=OV==='free';
+ var L=S.projects.filter(function(p){return availed(p)&&!!p.f===f&&share(p)>0});
+ var tot=sum(L,sq);
+ var seg='<div class="seg">'+[['proj','Projects'],['free','Freelance']].map(function(x){return '<button class="'+(OV===x[0]?'on':'')+'" onclick="OV=\''+x[0]+'\';render()">'+x[1]+'</button>'}).join('')+'</div>';
+ return '<h3>Booked projects</h3>'+seg+'<div class="stat" style="margin-bottom:12px"><small>Total quoted rate ('+L.length+' booked)</small><b class="num">'+fmt(tot)+'</b></div>'+projList(f?'ov1':'ov0');
+}
+function days(a){var d=new Date(a+'T00:00:00'),n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate());return Math.floor((t-d)/864e5)}
+function fd(){return (S.cfg&&+S.cfg.fd)||3}
+function attn(){
+ var out=[];
+ S.projects.forEach(function(p){
+  if(p.status==='Quoted'){var dd=0;var base=(p.fu&&p.fu>(p.date||''))?p.fu:p.date;if(base)dd=days(base);out.push({p:p,k:'q',d:dd,due:dd>=fd()})}
+  else if(p.status==='Retainer Fee Pending')out.push({p:p,k:'r',d:0});else if(p.status==='Booked'||p.status==='Confirmed')out.push({p:p,k:'a',d:0});else if(p.status==='Shoot Complete')out.push({p:p,k:'s',d:0});
+ });
+ out.sort(function(a,b){return (b.due?1:0)-(a.due?1:0)});
+ return out;
+}
+function setS(id,s){S.projects.forEach(function(p){if(p.id===id){p.status=s;fixSt(p)}});save();render()}
+function depRcv(id){S.projects.forEach(function(p){if(p.id===id){p.depst='Received';if(!p.depdate)p.depdate=today();fixSt(p)}});save();render()}
+function fup(id){S.projects.forEach(function(p){if(p.id===id)p.fu=today()});save();render()}
+function attnHome(){
+ var L=attn();if(!L.length)return '';
+ var eve=new Date().getHours()>=21,hasA=L.some(function(x){return x.k==='a'||x.k==='s'});
+ return '<h3>'+(eve&&hasA?'Evening check: any finished projects?':'Needs attention')+'</h3>'+L.map(function(x){
+  var p=x.p;
+  return '<div class="card" style="cursor:default'+((x.k==='a'||x.k==='s')&&eve?';border-color:var(--accent)':'')+'"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(p.f?' (freelance)':'')+'</div></div><b class="num">'+fmt(p.quote)+'</b></div>'+dsc(p)+shootLines(p,x.k)+'<div class="meta"><span>'+(x.k==='q'?(x.due?'Quoted '+days(x.p.date)+' days ago. Time to follow up?':'Quoted '+days(x.p.date)+' days ago. Follow up in '+(fd()-x.d)+' day'+(fd()-x.d===1?'':'s')+'.'):x.k==='r'?'Retainer fee pending. Has the deposit come in?':x.k==='a'?'Booked. Shoot done yet?':'Shoot complete. Ready to mark complete?')+'</span></div>'+
+  (x.k==='r'?'<div class="tools" style="margin-top:8px;flex-wrap:wrap"><button class="btn p" style="flex:1 1 45%" onclick="depRcv(\''+p.id+'\')">Deposit received</button><button class="btn" style="flex:1 1 45%" onclick="setS(\''+p.id+'\',\'No Response\')">No response</button><button class="btn" style="flex:1 1 45%" onclick="setS(\''+p.id+'\',\'Rejected\')">Rejected</button></div>':x.k==='q'?'<div class="tools" style="margin-top:8px;flex-wrap:wrap"><button class="btn p" style="flex:1 1 45%" onclick="setS(\''+p.id+'\',\'Booked\')">Booked</button><button class="btn" style="flex:1 1 45%" onclick="fup(\''+p.id+'\')">Followed up</button><button class="btn" style="flex:1 1 45%" onclick="setS(\''+p.id+'\',\'No Response\')">No response</button><button class="btn" style="flex:1 1 45%" onclick="setS(\''+p.id+'\',\'Rejected\')">Rejected</button></div>':(x.k==='a'&&shootN(p)?'<div class="s" style="margin-top:8px">Mark each shoot day complete above. The project updates when all of them are done.</div>':'<div class="tools" style="margin-top:8px"><button class="btn p" onclick="setS(\''+p.id+'\',\''+(x.k==='a'?'Shoot Complete':'Complete')+'\')">'+(x.k==='a'?'Shoot complete':'Mark complete')+'</button></div>'))+'</div>';
+ }).join('');
+}
+function fuCtl(){
+ var o=[2,3,5,7,14];
+ return '<h3>Reminders</h3><label>Follow up on quotes after<select onchange="S.cfg=S.cfg||{};S.cfg.fd=+this.value;save();render()">'+o.map(function(n){return '<option value="'+n+'"'+(fd()===n?' selected':'')+'>'+n+' days</option>'}).join('')+'</select></label><p style="color:var(--muted);font-size:14px">Booked and shoot-complete projects are listed above, and highlighted after 9 PM. This app can’t ring your phone while it is closed, so pair it with a phone alarm.</p>';
+}
+function tasksTab(){
+ return (attnHome()||'<div class="empty">Nothing to follow up or complete right now.</div>')+fuCtl();
+}
+function tick(id,k,v){S.projects.forEach(function(p){if(p.id===id)p[k]=v});save();render()}
+function giveTab(){
+ var av=S.projects.filter(function(p){return availed(p)&&share(p)>0}).sort(function(a,b){var x=(a.tithe?1:0)+(a.offering?1:0),y=(b.tithe?1:0)+(b.offering?1:0);return x-y||(b.date||'').localeCompare(a.date||'')});
+ var due=sum(av,tithe),tg=sum(av.filter(function(p){return p.tithe}),tithe),og=sum(av.filter(function(p){return p.offering}),tithe);
+ var h=ctrl()+'<div class="grid">'+st('Tithe given',fmt(tg)+' of '+fmt(due))+st('Offering given',fmt(og)+' of '+fmt(due))+'</div>';
+ if(!av.length)return h+'<div class="empty">No booked projects in this period.<br>Tithe and offering show up here once a quote is booked.</div>';
+ return h+av.map(function(p){
+  return '<div class="card" style="cursor:default"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(p.f?' (freelance)':'')+'</div><div class="s">'+esc(p.date)+'</div></div><b class="num">'+fmt(p.quote)+'</b></div>'+
+  '<label class="chk"><input type="checkbox"'+(p.tithe?' checked':'')+' onchange="tick(\''+p.id+'\',\'tithe\',this.checked)"> Tithe '+fmt(tithe(p))+'</label>'+
+  '<label class="chk"><input type="checkbox"'+(p.offering?' checked':'')+' onchange="tick(\''+p.id+'\',\'offering\',this.checked)"> Offering '+fmt(tithe(p))+'</label></div>';
+ }).join('');
+}
+function workTab(){
+ var o=[['proj','Projects'],['tasks','Tasks'],['exp','Expenses']];
+ var n=attn().filter(function(x){return (x.k==='q'&&x.due)||x.k==='r'||new Date().getHours()>=21}).length;
+ var seg='<div class="seg">'+o.map(function(x){return '<button class="'+(W===x[0]?'on':'')+'" onclick="W=\''+x[0]+'\';render()">'+x[1]+(x[0]==='tasks'&&n?' ('+n+')':'')+'</button>'}).join('')+'</div>';
+ return seg+(W==='tasks'?tasksTab():W==='exp'?expList():agSum()+projList(false));
+}
+function cn(p){return esc(p.client||'Unnamed client')+(p.company?'<div class="s" style="font-weight:400">'+esc(p.company)+'</div>':'')}
+function dsc(p){return p.desc?'<div class="s" style="margin-top:6px;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">'+esc(p.desc)+'</div>':''}
+function ec(e){var q=S.projects.filter(function(x){return x.id===e.pid})[0];return !q||availed(q)}
+function exp2(){openSheet('<h2>Backup</h2><p style="color:var(--muted);font-size:14px">Copy all of this text and keep it somewhere safe, like Notes.</p><textarea id="bk" rows="8" readonly onfocus="this.select()">'+esc(JSON.stringify(S))+'</textarea><button class="btn p" onclick="cpy()">Copy backup</button><button class="btn" onclick="closeSheet()">Close</button>')}
+function cpy(){var t=$('#bk');t.select();try{navigator.clipboard.writeText(t.value)}catch(e){try{document.execCommand('copy')}catch(e2){}}}
+function imp2(){openSheet('<h2>Import backup</h2><p style="color:var(--muted);font-size:14px">Paste your backup below. Records are added or updated. Nothing is deleted.</p><textarea id="bk" rows="8"></textarea><div id="bm" style="color:var(--bad);font-size:14px;margin-top:6px"></div><button class="btn p" onclick="doImp()">Import</button><button class="btn" onclick="closeSheet()">Cancel</button>')}
+function doImp(){try{var d=JSON.parse($('#bk').value);if(!d.projects||!d.expenses)throw 0;S=mergeStates(S,d);mig();save();closeSheet();render()}catch(e){$('#bm').textContent='That backup could not be read.'}}
+function split(pool,costs,extra,pay){var d=Math.max(0,costs-pool),e2=Math.max(0,d-extra);return{capL:Math.max(0,pool-costs),eL:Math.max(0,extra-d),pL:Math.max(0,pay-e2),over:Math.max(0,e2-pay)}}
+function row3(n,a,b){return '<tr><td>'+n+'</td><td>'+fmt(a)+'</td><td>'+fmt(b)+'</td></tr>'}
+function allocT_old(tt,off,pool,extra,pay,s,pc,pp){return '<table class="tbl num"><tr style="color:var(--muted)"><td>Priority order</td><td>Allotted</td><td>After expenses</td></tr>'+row3('1. Tithe (10%)',tt,tt)+row3('2. Offering (10%)',off,off)+row3('3. Business capital ('+pc+'%)',pool,s.capL)+row3('4. Owner’s extra profit (10%)',extra,s.eL)+row3('5. Owner’s personal pay ('+pp+'%)',pay,s.pL)+(s.over>0?'<tr><td>Expenses not covered</td><td></td><td style="color:var(--bad)">'+fmt(s.over)+'</td></tr>':'')+'</table>'}
+function sumHtml(a,c,q,m,pay,cap){
+ var s=split(a*cap,c,a*0.1,a*pay);
+ function r(l,v,bad){return '<div><span>'+l+'</span><b class="num'+(bad?' bad':'')+'">'+fmt(v)+'</b></div>'}
+ return r('Expenses (paid from business capital)',c)+'<div><span>Margin (quote minus costs, this project only)</span><b class="num '+(m<0?'bad':'good')+'">'+fmt(m)+(q?' ('+Math.round(m/q*100)+'%)':'')+'</b></div>'+det('proj','Priority order',r('1. Tithe (10%)',a*0.1)+r('2. Offering (10%)',a*0.1)+r('3. Business capital ('+Math.round(cap*100)+'%) allotted',a*cap)+r('Capital left after expenses',s.capL)+r('4. Owner’s extra profit (10%), after covering',s.eL)+r('5. Owner’s personal pay ('+Math.round(pay*100)+'%), after covering',s.pL)+(s.over>0?r('Expenses not covered',s.over,true):''))+r('Balance still to collect',q-(+D.received||0));
+}
+var OP={};
+function det(k,t,h){return '<details class="pri"'+(OP[k]?' open':'')+' ontoggle="OP[\''+k+'\']=this.open"><summary>'+t+'</summary>'+h+'</details>'}
+function allocT(tt,off,pool,extra,pay,s,pc,pp,ov,ttl,key){
+ var n=ov?0:2;
+ var rows=(ov?'':row3('1. Tithe (10%)',tt,tt)+row3('2. Offering (10%)',off,off)+'<tr style="color:var(--muted)"><td>Total booked</td><td>'+fmt(pool+extra+pay)+'</td><td>'+fmt(pool+extra+pay)+'</td></tr>')+row3((n+1)+'. Business capital ('+pc+'%)',pool,s.capL)+row3((n+2)+'. Owner’s extra profit (10%)',extra,s.eL)+row3((n+3)+'. Owner’s personal pay ('+pp+'%)',pay,s.pL)+(s.over>0?'<tr><td>Expenses not covered</td><td></td><td style="color:var(--bad)">'+fmt(s.over)+'</td></tr>':'');
+ return det(key,ttl,'<table class="tbl num"><tr style="color:var(--muted)"><td>Priority order</td><td>Allotted</td><td>After expenses</td></tr>'+rows+'</table>'+(ov?'<p style="color:var(--muted);font-size:13px;margin:0;padding:0 14px 10px">Tithe and offering are tracked in the Giving tab and on each project.</p>':''));
+}
+function totAll(){var m=M;M='';var t=totals();M=m;return t}
+function agSum(){var t=totAll();if(!t.n)return '';return allocT(t.tt,t.off,t.pool,t.extra,t.pay,t.sp,40,30,false,'Priority order (all booked projects)','wag')}
+function frSum(){
+ var av=S.projects.filter(function(p){return p.f&&availed(p)});
+ if(!av.length)return '';
+ var rev=sum(av,function(p){return p.quote}),costs=sum(av,cost),fs=split(rev*0.1,costs,rev*0.1,rev*0.6);
+ return allocT(rev*0.1,rev*0.1,rev*0.1,rev*0.1,rev*0.6,fs,10,60,false,'Priority order (all booked freelance)','wfr');
+}
+function pad(n){return ('0'+n).slice(-2)}
+function ymd(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function plus(s,n){var a=s.split('-');return ymd(new Date(+a[0],+a[1]-1,+a[2]+n))}
+function fz(d){return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00'}
+function zt(d){return ymd(d)+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':00'}
+function calHtml(p){
+ var h='<h3>Calendar</h3>',mu='<p style="color:var(--muted);font-size:14px">';
+ if(!availed(p))return h+mu+'Set the status to Booked and this project can be added to your calendar.</p>';
+ if(!p.edate)return h+mu+'Add a shoot or event date above to put this booking on your calendar.</p>';
+ var title=(p.company||p.client||'Project')+(p.title?' – '+p.title:'')+(p.status==='Confirmed'?' (Confirmed)':' (Booked)');
+ var det=(p.desc?p.desc+'\n':'')+'Client: '+(p.client||'')+'\nQuote: '+fmt(p.quote);
+ var ad=!p.etime,gs,ge,os,oe;
+ if(ad){gs=p.edate.replace(/-/g,'');ge=plus(p.edate,1).replace(/-/g,'');os=p.edate;oe=plus(p.edate,1)}
+ else{
+  var a=p.edate.split('-'),t=p.etime.split(':'),st=new Date(+a[0],+a[1]-1,+a[2],+t[0],+t[1]),en=new Date(st.getTime()+7200000);
+  if(p.etime2){var t2=p.etime2.split(':'),e2=new Date(+a[0],+a[1]-1,+a[2],+t2[0],+t2[1]);if(e2>st)en=e2}
+  gs=fz(st);ge=fz(en);os=zt(st);oe=zt(en);
+ }
+ var loc=encodeURIComponent(p.eloc||'');
+ var g='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+gs+'/'+ge+'&details='+encodeURIComponent(det)+'&location='+loc;
+ var o='https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject='+encodeURIComponent(title)+'&startdt='+encodeURIComponent(os)+'&enddt='+encodeURIComponent(oe)+'&body='+encodeURIComponent(det)+'&location='+loc+(ad?'&allday=true':'');
+ return h+'<a class="btn p" target="_blank" rel="noopener" href="'+esc(g)+'">Add to Google Calendar</a><a class="btn" target="_blank" rel="noopener" href="'+esc(o)+'">Add to Outlook calendar</a>'+mu+'Opens your calendar with this booking filled in. Tap Save there. With no start time it is added as an all-day event.</p>';
+}
+function depHtml(p){
+ var d=+p.dep||0,q=+p.quote||0;
+ if(!d)return '<div><span>Enter a deposit to see its tithe and offering.</span></div>';
+ var tt=q*0.1,dt=d*0.1,pc=q?Math.round(d/q*100):0;
+ function row(l,v){return '<div><span>'+l+'</span><b class="num">'+v+'</b></div>'}
+ return row('Deposit ('+pc+'% of the quote)',fmt(d))+row('Tithe (10%) from deposit',fmt(dt)+' of '+fmt(tt))+row('Offering (10%) from deposit',fmt(dt)+' of '+fmt(tt))+row('Deposit after tithe and offering',fmt(d*0.8))+row('Tithe still due on the balance',fmt(Math.max(0,tt-dt)))+row('Offering still due on the balance',fmt(Math.max(0,tt-dt)));
+}
+function depSt(v){
+ D.depst=v;
+ fixSt(D);var s=$('#stat');if(s)s.value=D.status;
+ upd();
+}
+function fixSt(p){if(p.depst==='Received'&&['Quoted','No Response','Rejected','Retainer Fee Pending'].indexOf(p.status)>=0)p.status='Booked';else if(p.depst==='Pending'&&p.status==='Booked')p.status='Retainer Fee Pending'}
+var BM='';
+function bookedBox(){return bookedBox2();
+ var all=S.projects.filter(function(p){return !p.f&&p.status==='Booked'&&p.depst==='Received'});
+ var ms={};all.forEach(function(p){if(p.date)ms[p.date.slice(0,7)]=1});
+ var ks=Object.keys(ms).sort().reverse();
+ if(BM&&!ms[BM])BM='';
+ var L=all.filter(function(p){return !BM||(p.date||'').slice(0,7)===BM}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')});
+ var sel='<label style="padding:0 14px 10px">Sort by month<select onchange="BM=this.value;render()"><option value="">All months</option>'+ks.map(function(m){return '<option value="'+m+'"'+(BM===m?' selected':'')+'>'+mlabel(m)+'</option>'}).join('')+'</select></label>';
+ var rows=L.map(function(p){return '<div style="padding:12px 14px;border-top:1px solid var(--line);cursor:pointer" onclick="editProj(\''+p.id+'\')"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+'</div></div><div style="text-align:right"><b class="num">'+fmt((+p.received||0)*0.8)+'</b><div class="s">of '+fmt((+p.quote||0)*0.8)+'</div></div></div></div>'}).join('');
+ return det('bk','Booked projects ('+L.length+')',sel+(rows||'<p style="padding:12px 14px;margin:0;color:var(--muted);font-size:14px">No Booked projects with a received deposit for this month.</p>'));
+}
+function pendTab(){
+ var n=S.projects.filter(isPd).length;
+ if(!n)return '<div class="empty">Every booked project has a shoot date.</div>';
+ return '<h3>Booked and retainer pending projects without a shoot date</h3><p style="color:var(--muted);font-size:14px;margin:0 0 12px">Tap a project to add its shoot or event date. It leaves this list once a date is set.</p>'+projList('pd');
+}
+function isPd(p){return (p.status==='Booked'||p.status==='Confirmed'||p.status==='Retainer Fee Pending')&&!p.edate}
+function pdMarks(p){return '<div class="meta" style="margin-top:6px"><span class="chip on">No shoot date</span>'+(p.depst==='Pending'?'<span class="chip on">Deposit pending</span>':'')+'</div>'}
+function bk(p){
+ var q=+p.quote||0,f=!!p.f,cap=f?0.1:0.4,pay=f?0.6:0.3,s=split(q*cap,cost(p),q*0.1,q*pay);
+ var tb='<table class="tbl num"><tr style="color:var(--muted)"><td>Allocation</td><td>Allotted</td><td>After expenses</td></tr>'+row3('Tithe (10%)',q*0.1,q*0.1)+row3('Offering (10%)',q*0.1,q*0.1)+row3('Business capital ('+Math.round(cap*100)+'%)',q*cap,s.capL)+row3('Owner\u2019s extra profit (10%)',q*0.1,s.eL)+row3('Owner\u2019s personal pay ('+Math.round(pay*100)+'%)',q*pay,s.pL)+(s.over>0?'<tr><td>Expenses not covered</td><td></td><td style="color:var(--bad)">'+fmt(s.over)+'</td></tr>':'')+'</table>';
+ var sdays=[{n:'Main shoot',d:p.edate,b:+p.dbud||0,t:p.etime,l:p.eloc}].concat((p.days||[]).map(function(x){return {n:x.desc||'Additional shoot',d:x.date,b:+x.budget||0,t:x.etime,l:x.loc}}));
+ var sdsp=sum(sdays,function(x){return x.b});
+ var sd='<table class="tbl num"><tr style="color:var(--muted)"><td>Shoot days</td><td>Date</td><td>Budget</td></tr>'+sdays.map(function(x){return '<tr><td>'+esc(x.n)+(x.l?'<div class="s">'+esc(x.l)+'</div>':'')+'</td><td>'+(x.d?esc(x.d)+(x.t?'<div class="s">'+esc(x.t)+'</div>':''):'No date')+'</td><td>'+fmt(x.b)+'</td></tr>'}).join('')+(p.other||[]).map(function(o){return '<tr><td>'+esc(o.name||'Other budget')+'</td><td>Other</td><td>'+fmt(o.amt)+'</td></tr>'}).join('')+'<tr><td>Spread so far</td><td></td><td>'+fmt(sdsp+sum(p.other||[],function(o){return o.amt}))+'</td></tr><tr><td>Budget (quote less deposit)</td><td></td><td>'+fmt(Math.max(0,q-(+p.dep||0)))+'</td></tr></table>';
+ return '<details style="border-top:1px solid var(--line)"><summary style="padding:12px 14px;cursor:pointer"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(f?' (freelance)':'')+'</div></div><div style="text-align:right"><b class="num">'+fmt((+p.received||0)*0.8)+'</b><div class="s">of '+fmt(q*0.8)+'</div></div></div></summary>'+tb+'<div style="height:10px"></div>'+sd+'<div style="padding:0 14px 12px"><button class="btn" onclick="editProj(\''+p.id+'\')">Open project</button></div></details>';
+}
+function bookedBox2(){
+ var all=S.projects.filter(function(p){return (p.status==='Booked'&&p.depst==='Received')||(p.f&&p.status==='Confirmed')});
+ var ms={};all.forEach(function(p){if(p.date)ms[p.date.slice(0,7)]=1});
+ var ks=Object.keys(ms).sort().reverse();
+ if(BM&&!ms[BM])BM='';
+ var L=all.filter(function(p){return !BM||(p.date||'').slice(0,7)===BM}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')});
+ var sel='<label style="padding:0 14px 10px">Sort by month<select onchange="BM=this.value;render()"><option value="">All months</option>'+ks.map(function(m){return '<option value="'+m+'"'+(BM===m?' selected':'')+'>'+mlabel(m)+'</option>'}).join('')+'</select></label>';
+ var ag=L.filter(function(p){return !p.f}),fr=L.filter(function(p){return !!p.f}),cur=BT==='fr'?fr:ag;
+ var seg='<div class="seg" style="margin:0 14px 10px">'+[['ag','Agency ('+ag.length+')'],['fr','Freelance ('+fr.length+')']].map(function(x){return '<button class="'+(BT===x[0]?'on':'')+'" onclick="BT=\''+x[0]+'\';render()">'+x[1]+'</button>'}).join('')+'</div>';
+ return det('bk','Booked projects ('+L.length+')',sel+seg+(cur.length?cur.map(bk).join(''):'<p style="padding:12px 14px;margin:0;color:var(--muted);font-size:14px">No Booked '+(BT==='fr'?'freelance':'agency')+' projects with a received deposit for this month.</p>'));
+}
+var BT='ag';
+function dayRow(d,i){
+ return '<div class="dayc"><label>Description<input value="'+esc(d.desc)+'" placeholder="e.g. Interview day, pickup shots" oninput="D.days['+i+'].desc=this.value;upd()"></label><div class="row2"><label>Date<input type="date" value="'+esc(d.date)+'" oninput="D.days['+i+'].date=this.value;upd()"></label><label>Budget (₱)<input type="number" inputmode="decimal" value="'+(d.budget||'')+'" oninput="D.days['+i+'].budget=+this.value;upd()"></label></div><div class="row2"><label>Starts<input type="time" value="'+esc(d.etime)+'" oninput="D.days['+i+'].etime=this.value;upd()"></label><label>Ends<input type="time" value="'+esc(d.etime2)+'" oninput="D.days['+i+'].etime2=this.value;upd()"></label></div><label>Location<input value="'+esc(d.loc)+'" placeholder="Venue or address" oninput="D.days['+i+'].loc=this.value;upd()"></label><div id="cald'+i+'"></div><button class="btn d" onclick="delDay('+i+')">Remove this shoot day</button></div>';
+}
+function addDay(){D.days=D.days||[];D.days.push({date:'',etime:'',etime2:'',loc:'',budget:0});projSheet()}
+function delDay(i){D.days.splice(i,1);projSheet()}
+function spreadDays(){var n=1+(D.days||[]).length,b=Math.max(0,(+D.quote||0)-(+D.dep||0)-sum(D.other||[],function(o){return o.amt})),each=Math.floor(b/n*100)/100;(D.days||[]).forEach(function(d){d.budget=each});D.dbud=Math.round((b-each*(n-1))*100)/100;projSheet()}
+function daysSumHtml(p){
+ var q=+p.quote||0,dep=+p.dep||0,b=Math.max(0,q-dep),nd=(p.days||[]).length,sp=(+p.dbud||0)+sum(p.days||[],function(d){return d.budget}),oth=sum(p.other||[],function(o){return o.amt}),left=b-sp-oth;
+ function r(l,v,bad){return '<div><span>'+l+'</span><b class="num'+(bad?' bad':'')+'">'+fmt(v)+'</b></div>'}
+ return r('Quote',q)+r('Less deposit (excluded)',dep)+r('Budget to spread',b)+r('Spread to the shoot days',sp)+r('Other budget allocated',oth)+(left>=0?r('Left to spread',left):r('Over by',-left,true));
+}
+function othRow(o,i){
+ return '<div class="row"><input placeholder="e.g. Final video delivery" value="'+esc(o.name)+'" oninput="D.other['+i+'].name=this.value"><input type="number" inputmode="decimal" placeholder="₱" value="'+(o.amt||'')+'" oninput="D.other['+i+'].amt=+this.value;upd()"><button onclick="delOth('+i+')">✕</button></div>';
+}
+function addOth(){D.other=D.other||[];D.other.push({name:'',amt:0});projSheet()}
+function delOth(i){D.other.splice(i,1);projSheet()}
+function sec(n,id,t,b){return '<section class="fs" id="'+id+'"><div class="fh"><i>'+n+'</i>'+t+'</div><div class="fb">'+b+'</div></section>'}
+function goSec(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'})}
+function projSheet2(){
+ var sts=D.f?['Quoted','No Response','Rejected','Retainer Fee Pending','Confirmed','Booked','Shoot Complete','Complete']:['Quoted','No Response','Rejected','Retainer Fee Pending','Booked','Shoot Complete','Complete'];
+ var jump=D.f?[['s1','Project'],['s2','Quote'],['s3','Payment'],['s4','Schedule'],['s5','Shoot days'],['s6','Costing'],['s7','Giving']]:[['s1','Project'],['s2','Quote'],['s3','Payment'],['s5','Shoot days'],['s6','Costing'],['s7','Giving']];
+ var h='<h2>'+(D.f?(isNew?'New freelance project':'Edit freelance project'):(isNew?'New project':'Edit project'))+'</h2><div class="jump">'+jump.map(function(j){return '<button onclick="goSec(\''+j[0]+'\')">'+j[1]+'</button>'}).join('')+'</div>'+
+ sec('01','s1','Project',
+  '<label>Client<input value="'+esc(D.client)+'" oninput="D.client=this.value"></label>'+
+  '<label>Company<input value="'+esc(D.company)+'" placeholder="Company name (optional)" oninput="D.company=this.value"></label>'+
+  (D.f?'':'<label>Belongs to<select onchange="D.biz=this.value"><option value="">Choose business</option><option'+(D.biz==='EC Cine'?' selected':'')+'>EC Cine</option><option'+(D.biz==='CineLikha Films'?' selected':'')+'>CineLikha Films</option></select></label>')+
+  '<label>Project name<input value="'+esc(D.title)+'" placeholder="e.g. Brand video, wedding film" oninput="D.title=this.value"></label>'+
+  '<label>Description<textarea rows="3" placeholder="Scope, deliverables, notes" oninput="D.desc=this.value">'+esc(D.desc)+'</textarea></label>')+
+ sec('02','s2','Quote and status',
+  '<label>Total quote (₱)<input type="number" inputmode="decimal" value="'+(D.quote||'')+'" oninput="D.quote=+this.value;upd()"></label>'+
+  '<label>Status<select id="stat" onchange="D.status=this.value;fixSt(D);this.value=D.status;upd()">'+sts.map(function(s){return '<option'+(D.status===s?' selected':'')+'>'+s+'</option>'}).join('')+'</select></label>')+
+ sec('03','s3','Payment and deposit',
+  '<label>Deposit status (Received books the project)<select id="dst" onchange="depSt(this.value)"><option'+(D.depst==='Received'?'':' selected')+'>Pending</option><option'+(D.depst==='Received'?' selected':'')+'>Received</option></select></label>'+
+  '<div class="row2"><label>Deposit received (₱)<input type="number" inputmode="decimal" value="'+(D.dep||'')+'" oninput="D.dep=+this.value;if((+D.received||0)<D.dep)D.received=D.dep;upd()"></label><label>Deposit date<input type="date" value="'+esc(D.depdate)+'" oninput="D.depdate=this.value"></label></div>'+
+  '<div class="cap">Deposit allocation</div><div class="sum" id="dep"></div>')+
+ (D.f?sec('04','s4','Schedule',
+  '<label>Shoot or event date<input type="date" value="'+esc(D.edate)+'" oninput="D.edate=this.value;upd()"></label>'+
+  '<div class="row2"><label>Starts<input type="time" value="'+esc(D.etime)+'" oninput="D.etime=this.value;upd()"></label><label>Ends<input type="time" value="'+esc(D.etime2)+'" oninput="D.etime2=this.value;upd()"></label></div>'+
+  '<label>Location<input value="'+esc(D.eloc)+'" placeholder="Venue or address" oninput="D.eloc=this.value;upd()"></label>'+
+  '<div id="cal"></div>'):'')+
+ sec('0'+(D.f?5:4),'s5','Shoot days and budget',
+  (D.f?'<p style="color:var(--muted);font-size:14px;margin:10px 0 0">The main shoot uses the shoot date in Schedule. Budgets exclude the deposit.</p>':'<p style="color:var(--muted);font-size:14px;margin:10px 0 0">Main shoot first, then any additional days. Budgets exclude the deposit.</p><div class="cap">Main shoot</div><label>Date<input type="date" value="'+esc(D.edate)+'" oninput="D.edate=this.value;upd()"></label><div class="row2"><label>Starts<input type="time" value="'+esc(D.etime)+'" oninput="D.etime=this.value;upd()"></label><label>Ends<input type="time" value="'+esc(D.etime2)+'" oninput="D.etime2=this.value;upd()"></label></div><label>Location<input value="'+esc(D.eloc)+'" placeholder="Venue or address" oninput="D.eloc=this.value;upd()"></label>')+
+  '<label>Main shoot budget (₱)<input type="number" inputmode="decimal" value="'+(D.dbud||'')+'" oninput="D.dbud=+this.value;upd()"></label>'+
+  (D.f?'':'<div id="calm"></div>')+
+  (D.days||[]).map(dayRow).join('')+
+  '<button class="btn" onclick="addDay()">+ Additional shoot day</button>'+(D.f?'':'<button class="btn" onclick="spreadDays()">Spread budget evenly</button>')+
+  '<div class="cap">Other budget (deliverables, items not yet paid)</div>'+(D.other||[]).map(othRow).join('')+'<button class="btn" onclick="addOth()">+ Add other budget</button>'+
+  '<div class="cap">Budget summary</div><div class="sum" id="dsum"></div>')+
+ sec('0'+(D.f?6:5),'s6','Costing and allocations',
+  D.items.map(function(it,i){return '<div class="row"><input placeholder="Line item" value="'+esc(it.name)+'" oninput="D.items['+i+'].name=this.value"><input type="number" inputmode="decimal" placeholder="₱" value="'+(it.cost||'')+'" oninput="D.items['+i+'].cost=+this.value;upd()"><button onclick="delItem('+i+')">✕</button></div>'}).join('')+
+  '<button class="btn" onclick="addItem()">+ Add cost line</button>'+
+  '<div class="cap">Allocation breakdown</div><div class="sum" id="sum"></div>')+
+ sec('0'+(D.f?7:6),'s7','Giving',
+  '<label class="chk"><input type="checkbox"'+(D.tithe?' checked':'')+' onchange="D.tithe=this.checked"> Tithe for this project given</label>'+
+  '<label class="chk"><input type="checkbox"'+(D.offering?' checked':'')+' onchange="D.offering=this.checked"> Offering for this project given</label>')+
+ '<button class="btn p" onclick="saveProj()">Save project</button>'+(isNew?'':'<button class="btn d" id="dp" onclick="delProj()">Delete project</button>')+'<button class="btn" onclick="closeSheet()">Cancel</button>';
+ openSheet(h);upd();
+}
+function calLinks(p,d){
+ var mu='<p style="color:var(--muted);font-size:13px;margin:8px 0 0">';
+ if(!availed(p))return mu+'Set the status to Booked to add this to your calendar.</p>';
+ if(!d.date)return mu+'Add a date to add this to your calendar.</p>';
+ var title=(p.company||p.client||'Project')+(p.title?' \u2013 '+p.title:'')+(d.desc?' \u2013 '+d.desc:'')+(p.status==='Confirmed'?' (Confirmed)':' (Booked)');
+ var det=(p.desc?p.desc+'\n':'')+(d.desc?d.desc+'\n':'')+'Client: '+(p.client||'')+'\nQuote: '+fmt(p.quote);
+ var ad=!d.etime,gs,ge,os,oe;
+ if(ad){gs=d.date.replace(/-/g,'');ge=plus(d.date,1).replace(/-/g,'');os=d.date;oe=plus(d.date,1)}
+ else{
+  var a=d.date.split('-'),t=d.etime.split(':'),st=new Date(+a[0],+a[1]-1,+a[2],+t[0],+t[1]),en=new Date(st.getTime()+7200000);
+  if(d.etime2){var t2=d.etime2.split(':'),e2=new Date(+a[0],+a[1]-1,+a[2],+t2[0],+t2[1]);if(e2>st)en=e2}
+  gs=fz(st);ge=fz(en);os=zt(st);oe=zt(en);
+ }
+ var loc=encodeURIComponent(d.loc||'');
+ var g='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+gs+'/'+ge+'&details='+encodeURIComponent(det)+'&location='+loc;
+ var o='https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject='+encodeURIComponent(title)+'&startdt='+encodeURIComponent(os)+'&enddt='+encodeURIComponent(oe)+'&body='+encodeURIComponent(det)+'&location='+loc+(ad?'&allday=true':'');
+ return '<div class="row2" style="margin-top:8px"><a class="btn p" target="_blank" rel="noopener" href="'+esc(g)+'">Google Calendar</a><a class="btn" target="_blank" rel="noopener" href="'+esc(o)+'">Outlook calendar</a></div>'+mu+'Opens your calendar with this shoot filled in. Tap Save there.'+(ad?' With no start time it is added as an all-day event.':'')+'</p>';
+}
+function pdays(p){var a=[];if(p.edate)a.push({d:p.edate,w:+p.dbud||0});(p.days||[]).forEach(function(x){if(x.date)a.push({d:x.date,w:+x.budget||0})});return a}
+function share(p){
+ if(!M)return 1;
+ var a=pdays(p);
+ if(!a.length)return (p.date||'').slice(0,M.length)===M?1:0;
+ var tw=sum(a,function(x){return x.w}),inW=0,n=0;
+ a.forEach(function(x){if(x.d.slice(0,M.length)===M){inW+=tw?x.w:1;n++}});
+ return tw?inW/tw:n/a.length;
+}
+function sq(p){return (+p.quote||0)*share(p)}
+function sr(p){return (+p.received||0)*share(p)}
+function plabel(){return M?(M.length===4?M+' (whole year)':mlabel(M)):'All time'}
+function periods(){
+ var now=new Date(),cm=ymd(now).slice(0,7),cy=cm.slice(0,4),mset={},later={},earlier={};
+ for(var i=1;i<=12;i++){later[ymd(new Date(now.getFullYear(),now.getMonth()+i,1)).slice(0,7)]=1}
+ function add(d){if(d&&d.length>=7)mset[d.slice(0,7)]=1}
+ S.projects.forEach(function(p){if(!availed(p))return;var a=pdays(p);if(a.length)a.forEach(function(x){add(x.d)});else add(p.date)});
+ S.expenses.forEach(function(e){if(ec(e))add(e.date)});
+ Object.keys(mset).forEach(function(m){if(m>cm)later[m]=1;else if(m<cm)earlier[m]=1});
+ var months=[cm].concat(Object.keys(later).sort(),Object.keys(earlier).sort().reverse());
+ if(M&&M.length===7&&months.indexOf(M)<0)months.push(M);
+ var ys={};months.forEach(function(m){ys[m.slice(0,4)]=1});
+ var rest=Object.keys(ys).filter(function(y){return y!==cy});
+ var years=[cy].concat(rest.filter(function(y){return y>cy}).sort(),rest.filter(function(y){return y<cy}).sort().reverse());
+ return {months:months,years:years,cm:cm};
+}
+function ctrl2(){
+ var pr=periods();
+ function opt(v,t){return '<option value="'+v+'"'+(M===v?' selected':'')+'>'+t+'</option>'}
+ return '<label>Period<select onchange="M=this.value;render()"><optgroup label="Months">'+pr.months.map(function(m){return opt(m,mlabel(m)+(m===pr.cm?' (this month)':''))}).join('')+'</optgroup><optgroup label="Whole year">'+pr.years.map(function(y){return opt(y,y+' (whole year)')}).join('')+'</optgroup><option value=""'+(M===''?' selected':'')+'>All time</option></select></label><div style="height:12px"></div>';
+}
+function yr(y,f){var m=M;M=y;var av=S.projects.filter(function(p){return availed(p)&&!!p.f===f&&share(p)>0});var t=sum(av,sq)*0.8;M=m;return {n:av.length,t:t}}
+function yearBox(){
+ var rows=periods().years.map(function(y){
+  var a=yr(y,false),f=yr(y,true);
+  function cell(o){return fmt(o.t)+'<div class="s">'+o.n+' booking'+(o.n===1?'':'s')+'</div>'}
+  return '<tr><td>'+y+'</td><td>'+cell(a)+'</td><td>'+cell(f)+'</td></tr>';
+ }).join('');
+ return det('yr','Total bookings per year','<table class="tbl num"><tr style="color:var(--muted)"><td>Year</td><td>Agency</td><td>Freelance</td></tr>'+rows+'</table><p style="color:var(--muted);font-size:13px;margin:0;padding:0 14px 12px">Based on each booking\u2019s shoot days, after tithe and offering.</p>');
+}
+function dlabel(d){var a=(d||'').split('-');if(a.length<3)return d||'';return new Date(+a[0],+a[1]-1,+a[2]).toLocaleDateString('en-PH',{month:'short',day:'numeric',year:'numeric'})}
+function shootLines(p,k){return shootLines2(p,k);
+ var a=[];
+ if(p.edate)a.push({n:'Main shoot',d:p.edate,t:p.etime,t2:p.etime2,l:p.eloc});
+ (p.days||[]).forEach(function(x){if(x.date)a.push({n:x.desc||'Additional shoot',d:x.date,t:x.etime,t2:x.etime2,l:x.loc})});
+ if(!a.length)return '<div class="s" style="margin-top:8px">No shoot dates yet</div>';
+ a.sort(function(x,y){return x.d.localeCompare(y.d)});
+ return '<div style="margin-top:8px;font-size:14px">'+a.map(function(x){return '<div class="top" style="padding:4px 0;border-top:1px solid var(--line)"><span>'+esc(x.n)+(x.l?'<span class="s"> '+esc(x.l)+'</span>':'')+'</span><span class="num">'+esc(dlabel(x.d))+(x.t?' '+esc(x.t)+(x.t2?' to '+esc(x.t2):''):'')+'</span></div>'}).join('')+'</div>';
+}
+function shootN(p){return (p.edate?1:0)+(p.days||[]).filter(function(x){return x.date}).length}
+function dayDone(id,i){
+ S.projects.forEach(function(p){
+  if(p.id!==id)return;
+  if(i<0)p.mdone=!p.mdone;else if(p.days&&p.days[i])p.days[i].done=!p.days[i].done;
+  var all=(p.edate?[!!p.mdone]:[]).concat((p.days||[]).filter(function(x){return x.date}).map(function(x){return !!x.done}));
+  var fin=all.length>0&&all.every(function(v){return v});
+  if(fin&&(p.status==='Booked'||p.status==='Confirmed'))p.status='Shoot Complete';
+  else if(!fin&&p.status==='Shoot Complete')p.status='Booked';
+ });
+ save();render();
+}
+function shootLines2_old(p,k){
+ var a=[];
+ if(p.edate)a.push({i:-1,n:'Main shoot',d:p.edate,t:p.etime,t2:p.etime2,l:p.eloc,done:p.mdone});
+ (p.days||[]).forEach(function(x,i){if(x.date)a.push({i:i,n:x.desc||'Additional shoot',d:x.date,t:x.etime,t2:x.etime2,l:x.loc,done:x.done})});
+ if(!a.length)return '<div class="s" style="margin-top:8px">No shoot dates yet</div>';
+ a.sort(function(x,y){return x.d.localeCompare(y.d)});
+ var btn=(k==='a'||k==='s');
+ return '<div style="margin-top:8px;font-size:14px">'+a.map(function(x){
+  return '<div style="padding:8px 0;border-top:1px solid var(--line)"><div class="top"><span>'+esc(x.n)+(x.l?'<span class="s"> '+esc(x.l)+'</span>':'')+'</span><span class="num">'+esc(dlabel(x.d))+(x.t?' '+esc(x.t)+(x.t2?' to '+esc(x.t2):''):'')+'</span></div>'+(btn?'<button class="btn'+(x.done?'':' p')+'" style="margin-top:8px" onclick="dayDone(\''+p.id+'\','+x.i+')">'+(x.done?'Shoot completed. Tap to undo':'Shoot complete')+'</button>':'')+'</div>';
+ }).join('')+'</div>';
+}
+function shootLines2(p,k){
+ var a=[];
+ if(p.edate)a.push({i:-1,n:'Main shoot',d:p.edate,t:p.etime,t2:p.etime2,l:p.eloc,done:p.mdone});
+ (p.days||[]).forEach(function(x,i){if(x.date)a.push({i:i,n:x.desc||'Additional shoot',d:x.date,t:x.etime,t2:x.etime2,l:x.loc,done:x.done})});
+ if(!a.length)return '<div class="s" style="margin-top:8px">No shoot dates yet</div>';
+ a.sort(function(x,y){return x.d.localeCompare(y.d)});
+ var btn=(k==='a'||k==='s');
+ return '<div style="margin-top:8px;font-size:14px">'+a.map(function(x){
+  var key='sd'+p.id+'_'+x.i;
+  var info=[x.l,(x.t?x.t+(x.t2?' to '+x.t2:''):'')].filter(Boolean).map(esc).join(', ');
+  return '<details style="border-top:1px solid var(--line)"'+(OP[key]?' open':'')+' ontoggle="OP[\''+key+'\']=this.open"><summary style="padding:9px 0;cursor:pointer"><div class="top"><span>'+esc(x.n)+(x.done?' (done)':'')+'</span><span class="num">'+esc(dlabel(x.d))+'</span></div></summary><div style="padding:0 0 12px">'+(info?'<div class="s">'+info+'</div>':'')+(btn?'<button class="btn'+(x.done?'':' p')+'" style="margin-top:8px" onclick="dayDone(\''+p.id+'\','+x.i+')">'+(x.done?'Shoot completed. Tap to undo':'Shoot complete')+'</button>':'')+'</div></details>';
+ }).join('')+'</div>';
+}
+var SKEY='ec_sync_key',SS='Saved on this device. Add your sync key to sync.',STM=null,SYNCING=false,AGAIN=false;
+function mergeStates(a,b){
+ var tomb={};[a.tomb,b.tomb].forEach(function(t){Object.keys(t||{}).forEach(function(k){if(!tomb[k]||t[k]>tomb[k])tomb[k]=t[k]})});
+ function ml(x,y){var m={};(x||[]).forEach(function(r){m[r.id]=r});(y||[]).forEach(function(r){var o=m[r.id];if(!o||(r._u||0)>(o._u||0))m[r.id]=r});return Object.keys(m).map(function(k){return m[k]}).filter(function(r){return !(tomb[r.id]&&tomb[r.id]>=(r._u||0))})}
+ var useB=(b.cfgU||0)>(a.cfgU||0);
+ return {projects:ml(a.projects,b.projects),expenses:ml(a.expenses,b.expenses),tomb:tomb,cfg:useB?(b.cfg||{}):(a.cfg||{}),cfgU:Math.max(a.cfgU||0,b.cfgU||0)};
+}
+function syncKey(){try{return localStorage.getItem(SKEY)||''}catch(e){return ''}}
+function setKey(v){try{localStorage.setItem(SKEY,v.trim())}catch(e){}}
+function setSS(t){SS=t;var e=document.getElementById('ssline');if(e)e.textContent=t}
+function schedSync(){clearTimeout(STM);STM=setTimeout(function(){syncNow(false)},1500)}
+async function syncNow(manual){
+ var key=syncKey();
+ if(!key){if(manual)setSS('Enter your sync key first.');return}
+ if(!navigator.onLine){setSS('Offline. Changes are saved on this device and will sync when you are back online.');return}
+ if(SYNCING){AGAIN=true;return}
+ SYNCING=true;setSS('Syncing...');
+ try{
+  var payload={projects:S.projects,expenses:S.expenses,tomb:S.tomb||{},cfg:S.cfg||{},cfgU:S.cfgU||0};
+  var res=await fetch('/api/sync',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify(payload)});
+  if(res.status===401){setSS('Wrong sync key.');SYNCING=false;return}
+  if(!res.ok)throw new Error('HTTP '+res.status);
+  var remote=await res.json();
+  var m=mergeStates(S,remote);
+  S.projects=m.projects;S.expenses=m.expenses;S.tomb=m.tomb;S.cfg=m.cfg;S.cfgU=m.cfgU;
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+  setSS('Synced '+new Date().toLocaleTimeString('en-PH',{hour:'2-digit',minute:'2-digit'}));
+  if(!D)render();
+ }catch(e){setSS('Could not reach the server. Saved on this device and will retry.')}
+ SYNCING=false;
+ if(AGAIN){AGAIN=false;syncNow(false)}
+}
+function syncBox(){
+ return '<h3>Sync</h3><p id="ssline" style="color:var(--muted);font-size:14px;margin:0 0 8px">'+esc(SS)+'</p><label>Sync key<input type="password" autocomplete="off" value="'+esc(syncKey())+'" placeholder="The key you set on Netlify" oninput="setKey(this.value)"></label><button class="btn p" onclick="syncNow(true)">Sync now</button><p style="color:var(--muted);font-size:13px">Works offline. Changes made without internet sync by themselves when you are back online.</p>';
+}
+function freeHome(){
+ var av=S.projects.filter(function(p){return p.f&&availed(p)&&share(p)>0});
+ var rev=sum(av,sq),rec=sum(av,sr),costs=sum(av,function(p){return cost(p)*share(p)});
+ var fs=split(rev*0.1,costs,rev*0.1,rev*0.6);
+ return '<h3>Freelance ('+av.length+' booked)</h3><div class="grid">'+st('Total booked',fmt(rev*0.8))+st('Received',fmt(rec*0.8))+st('Tithe given',fmt(sum(av.filter(function(p){return p.tithe}),function(p){return tithe(p)*share(p)}))+' of '+fmt(rev*0.1))+st('Offering given',fmt(sum(av.filter(function(p){return p.offering}),function(p){return tithe(p)*share(p)}))+' of '+fmt(rev*0.1))+st('Expenses (from capital)',fmt(costs))+st('Capital left after expenses',fmt(fs.capL),fs.over>0?'bad':'good')+'</div>'+allocT(rev*0.1,rev*0.1,rev*0.1,rev*0.1,rev*0.6,fs,10,60,false,'Priority order (freelance)','fr');
+ var g=sum(av.filter(function(p){return p.tithe}),tithe),og=sum(av.filter(function(p){return p.offering}),tithe);
+ return '<h3>Freelance ('+av.length+' booked)</h3><div class="grid">'+st('Freelance quotes',fmt(rev))+st('Received',fmt(rec))+st('Expenses (from capital)',fmt(costs))+st('Capital left after expenses',fmt(rev*0.1-costs),rev*0.1-costs<0?'bad':'good')+'</div><table class="tbl num"><tr><td>Tithe (10%)</td><td>'+fmt(rev*0.1)+'</td></tr><tr><td>Offering (10%)</td><td>'+fmt(rev*0.1)+'</td></tr><tr><td>Owner’s extra profit (10%)</td><td>'+fmt(rev*0.1)+'</td></tr><tr><td>Owner’s personal pay (60%)</td><td>'+fmt(rev*0.6)+'</td></tr><tr><td>Funds to business capital (10%)</td><td>'+fmt(rev*0.1)+'</td></tr></table>';
+}
+function alloc(t){return allocT(t.tt,t.off,t.pool,t.extra,t.pay,t.sp,40,30,false,'Priority order (agency)','ag');
+ return '<table class="tbl num"><tr><td>Tithe (10%)</td><td>'+fmt(t.tt)+'</td></tr><tr><td>Offering (10%)</td><td>'+fmt(t.off)+'</td></tr><tr><td>Owner’s extra profit (10%)</td><td>'+fmt(t.extra)+'</td></tr><tr><td>Owner’s personal pay (30%)</td><td>'+fmt(t.pay)+'</td></tr><tr><td>Business expenses and capital (40%)</td><td>'+fmt(t.pool)+'</td></tr></table>';
+}
+function st(l,v,c){return '<div class="stat"><small>'+l+'</small><b class="num '+(c||'')+'">'+v+'</b></div>'}
+
+function projList(f){
+ var ov=(f==='ov0'||f==='ov1'),L=f==='pd'?S.projects.filter(isPd):ov?S.projects.filter(function(p){return share(p)>0&&availed(p)&&!!p.f===(f==='ov1')}):S.projects.filter(function(p){return !!p.f===!!f});
+ if(!L.length)return '<div class="empty">No projects yet.<br>Add a client quote to start costing.</div>';
+ return sortCtl()+L.slice().sort(sorter()).map(function(p){
+  var pr=((+p.quote||0)*(p.f?0.1:0.4))-cost(p),mg=(+p.quote||0)-cost(p),mp=+p.quote?Math.round(mg/(+p.quote)*100):0;
+  return '<div class="card" onclick="editProj(\''+p.id+'\')"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(p.f?' (freelance)':'')+'</div></div><span class="chip '+(availed(p)?'on':'')+'">'+p.status+'</span></div>'+(f==='pd'?pdMarks(p):'')+
+  dsc(p)+'<div class="meta">'+(p.edate?'<span>Shoot <b class="num">'+esc(p.edate)+(p.etime?' '+esc(p.etime):'')+'</b></span>':'')+(p.biz?'<span>'+esc(p.biz)+'</span>':'')+((p.days&&p.days.length)?'<span>'+(p.days.length+1)+' shoot days</span>':'')+(p.dep?'<span>Deposit <b class="num">'+fmt(p.dep)+'</b> '+(p.depst==='Received'?'received':'pending')+'</span>':'')+'<span>Quote <b class="num">'+fmt(p.quote)+'</b></span><span>Received <b class="num">'+fmt(p.received)+'</b></span><span>Cost <b class="num">'+fmt(cost(p))+'</b></span>'+'<span>Margin <b class="num '+(mg<0?'bad':'good')+'">'+fmt(mg)+' ('+mp+'%)</b></span>'+('<span>Capital left <b class="num '+(pr<0?'bad':'good')+'">'+fmt(pr)+'</b></span>')+''+('<span>Tithe <b class="num">'+fmt((+p.quote||0)*0.1)+'</b>'+(p.tithe?' ✓':'')+'</span><span>Offering <b class="num">'+fmt((+p.quote||0)*0.1)+'</b>'+(p.offering?' ✓':'')+'</span>')+'</div></div>'}).join('');
+}
+function expList(){
+ var tot=sum(S.expenses,function(e){return e.amt});
+ var h='<div class="stat" style="margin-bottom:12px"><small>Total expenses</small><b class="num">'+fmt(tot)+'</b></div>';
+ if(!S.expenses.length)return h+'<div class="empty">No expenses logged.<br>Add gear rentals, crew, transport and more.</div>';
+ return h+S.expenses.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'')}).map(function(e){
+  var p=S.projects.filter(function(x){return x.id===e.pid})[0];
+  return '<div class="card" onclick="editExp(\''+e.id+'\')"><div class="top"><div class="t">'+esc(e.desc||e.cat)+'</div><b class="num">'+fmt(e.amt)+'</b></div><div class="meta"><span>'+esc(e.date)+'</span><span>'+esc(e.cat)+'</span>'+(p?'<span>'+esc(p.client)+'</span>':'')+'</div></div>'}).join('');
+}
+
+function openSheet(h){armed='';$('#panel').innerHTML=h;$('#sheet').classList.add('open')}
+function closeSheet(){$('#sheet').classList.remove('open');D=null}
+function add(){tab==='free'?newProj(true):(tab==='work'&&W==='proj')?newProj(false):newExp()}
+
+function newProj(f){D={f:!!f,id:uid(),client:'',title:'',date:today(),quote:0,received:0,status:'Quoted',depst:'Pending',tithe:false,items:[{name:'',cost:0}]};isNew=true;kind='p';projSheet()}
+function editProj(id){D=JSON.parse(JSON.stringify(S.projects.filter(function(p){return p.id===id})[0]));isNew=false;kind='p';projSheet()}
+function projSheet(){return projSheet2();
+ var h='<h2>'+(D.f?(isNew?'New freelance project':'Edit freelance project'):(isNew?'New project':'Edit project'))+'</h2>'+
+ '<label>Client<input value="'+esc(D.client)+'" oninput="D.client=this.value"></label>'+
+ '<label>Company<input value="'+esc(D.company)+'" placeholder="Company name (optional)" oninput="D.company=this.value"></label>'+
+ (D.f?'':'<label>Belongs to<select onchange="D.biz=this.value"><option value="">Choose business</option><option'+(D.biz==='EC Cine'?' selected':'')+'>EC Cine</option><option'+(D.biz==='CineLikha Films'?' selected':'')+'>CineLikha Films</option></select></label>')+
+ '<label>Project<input value="'+esc(D.title)+'" placeholder="e.g. Brand video, wedding film" oninput="D.title=this.value"></label>'+
+ '<label>Description<textarea rows="3" placeholder="Scope, deliverables, notes" oninput="D.desc=this.value">'+esc(D.desc)+'</textarea></label>'+
+ '<label>Shoot or event date<input type="date" value="'+esc(D.edate)+'" oninput="D.edate=this.value;upd()"></label>'+
+ '<div class="row2"><label>Starts<input type="time" value="'+esc(D.etime)+'" oninput="D.etime=this.value;upd()"></label><label>Ends<input type="time" value="'+esc(D.etime2)+'" oninput="D.etime2=this.value;upd()"></label></div>'+
+ '<label>Location<input value="'+esc(D.eloc)+'" placeholder="Venue or address" oninput="D.eloc=this.value;upd()"></label>'+
+ '<label>Total quote (₱)<input type="number" inputmode="decimal" value="'+(D.quote||'')+'" oninput="D.quote=+this.value;upd()"></label>'+
+ '<label>Status<select id="stat" onchange="D.status=this.value;fixSt(D);this.value=D.status;upd()">'+(D.f?['Quoted','No Response','Rejected','Retainer Fee Pending','Confirmed','Booked','Shoot Complete','Complete']:['Quoted','No Response','Rejected','Retainer Fee Pending','Booked','Shoot Complete','Complete']).map(function(s){return '<option'+(D.status===s?' selected':'')+'>'+s+'</option>'}).join('')+'</select></label>'+
+ '<label>Amount received (₱, includes deposit)<input id="rcv" type="number" inputmode="decimal" value="'+(D.received||'')+'" oninput="D.received=+this.value;upd()"></label>'+
+ '<h3>Deposit</h3><label>Deposit status (Received books the project)<select id="dst" onchange="depSt(this.value)"><option'+(D.depst==='Received'?'':' selected')+'>Pending</option><option'+(D.depst==='Received'?' selected':'')+'>Received</option></select></label><div class="row2"><label>Deposit received (₱)<input type="number" inputmode="decimal" value="'+(D.dep||'')+'" oninput="D.dep=+this.value;if((+D.received||0)<D.dep){D.received=D.dep;$(\'#rcv\').value=D.dep}upd()"></label><label>Deposit date<input type="date" value="'+esc(D.depdate)+'" oninput="D.depdate=this.value"></label></div><div class="sum" id="dep"></div>'+
+ '<h3>Shoot days and budget</h3><p style="color:var(--muted);font-size:14px;margin:0 0 6px">The main shoot uses the shoot date above. Budgets exclude the deposit.</p><label>Main shoot budget (₱)<input type="number" inputmode="decimal" value="'+(D.dbud||'')+'" oninput="D.dbud=+this.value;upd()"></label>'+(D.days||[]).map(dayRow).join('')+'<button class="btn" onclick="addDay()">+ Additional shoot day</button>'+(D.f?'':'<button class="btn" onclick="spreadDays()">Spread budget evenly</button>')+'<label style="margin-top:16px">Other budget (deliverables, items not yet paid)</label>'+(D.other||[]).map(othRow).join('')+'<button class="btn" onclick="addOth()">+ Add other budget</button><div class="sum" id="dsum"></div>'+
+ '<h3>Costing breakdown</h3>'+D.items.map(function(it,i){return '<div class="row"><input placeholder="Line item" value="'+esc(it.name)+'" oninput="D.items['+i+'].name=this.value"><input type="number" inputmode="decimal" placeholder="₱" value="'+(it.cost||'')+'" oninput="D.items['+i+'].cost=+this.value;upd()"><button onclick="delItem('+i+')">✕</button></div>'}).join('')+
+ '<button class="btn" onclick="addItem()">+ Add cost line</button><div class="sum" id="sum"></div><div id="cal"></div>'+
+ '<label class="chk"><input type="checkbox"'+(D.tithe?' checked':'')+' onchange="D.tithe=this.checked"> Tithe for this project given</label>'+
+ '<label class="chk"><input type="checkbox"'+(D.offering?' checked':'')+' onchange="D.offering=this.checked"> Offering for this project given</label>'+
+ '<button class="btn p" onclick="saveProj()">Save project</button>'+(isNew?'':'<button class="btn d" id="dp" onclick="delProj()">Delete project</button>')+'<button class="btn" onclick="closeSheet()">Cancel</button>';
+ openSheet(h);upd();
+}
+function upd(){
+ if(kind!=='p'||!D)return;
+ var cl=$('#cal');if(cl)cl.innerHTML=calHtml(D);
+ var cm=$('#calm');if(cm)cm.innerHTML=calLinks(D,{date:D.edate,etime:D.etime,etime2:D.etime2,loc:D.eloc,desc:''});
+ (D.days||[]).forEach(function(d,i){var e=$('#cald'+i);if(e)e.innerHTML=calLinks(D,d)});
+ var dp=$('#dep');if(dp)dp.innerHTML=depHtml(D);
+ var ds=$('#dsum');if(ds)ds.innerHTML=daysSumHtml(D);
+ var c=itemsCost(D)+linked(D),q=+D.quote||0,a=q,t=a*0.1,m=q-c,pay=D.f?0.6:0.3,cap=D.f?0.1:0.4;
+ $('#sum').innerHTML=sumHtml(a,c,q,m,pay,cap);return;
+ $('#sum').innerHTML='<div><span>Expenses (paid from business capital)</span><b class="num">'+fmt(c)+'</b></div><div><span>Margin (quote minus costs, this project only)</span><b class="num '+(m<0?'bad':'good')+'">'+fmt(m)+(q?' ('+Math.round(m/q*100)+'%)':'')+'</b></div><div><span>Tithe (10%)</span><b class="num">'+fmt(t)+'</b></div><div><span>Offering (10%)</span><b class="num">'+fmt(t)+'</b></div><div><span>Owner’s extra profit (10%)</span><b class="num">'+fmt(t)+'</b></div><div><span>Owner’s personal pay ('+Math.round(pay*100)+'%)</span><b class="num">'+fmt(a*pay)+'</b></div><div><span>'+(D.f?'Funds to business capital':'Business and capital')+' ('+Math.round(cap*100)+'%)</span><b class="num">'+fmt(a*cap)+'</b></div>'+('<div><span>Capital left after this project’s costs</span><b class="num '+(a*cap-c<0?'bad':'good')+'">'+fmt(a*cap-c)+'</b></div>')+'<div><span>Balance still to collect</span><b class="num">'+fmt(q-(+D.received||0))+'</b></div>';
+}
+function addItem(){D.items.push({name:'',cost:0});projSheet()}
+function delItem(i){D.items.splice(i,1);projSheet()}
+function saveProj(){
+ D.items=D.items.filter(function(i){return i.name||i.cost});
+ D.days=(D.days||[]).filter(function(d){return d.date||d.budget||d.loc||d.desc});
+ D.other=(D.other||[]).filter(function(o){return o.name||o.amt});
+ fixSt(D);
+ var i=S.projects.findIndex(function(p){return p.id===D.id});
+ if(i<0)S.projects.push(D);else S.projects[i]=D;
+ save();closeSheet();render();
+}
+function delProj(){
+ if(armed!=='p'){armed='p';$('#dp').textContent='Tap again to delete this project';return}
+ armed='';
+ S.tomb=S.tomb||{};S.tomb[D.id]=Date.now();
+ S.projects=S.projects.filter(function(p){return p.id!==D.id});
+ S.expenses.forEach(function(e){if(e.pid===D.id)e.pid=''});
+ save();closeSheet();render();
+}
+
+var CATS=['Crew','Equipment rental','Transport','Software','Food','Marketing','Other'];
+function newExp(){D={id:uid(),date:today(),desc:'',cat:'Crew',amt:0,pid:''};isNew=true;kind='e';expSheet()}
+function editExp(id){D=JSON.parse(JSON.stringify(S.expenses.filter(function(e){return e.id===id})[0]));isNew=false;kind='e';expSheet()}
+function expSheet(){
+ openSheet('<h2>'+(isNew?'New expense':'Edit expense')+'</h2>'+
+ '<label>Description<input value="'+esc(D.desc)+'" oninput="D.desc=this.value"></label>'+
+ '<label>Amount (₱)<input type="number" inputmode="decimal" value="'+(D.amt||'')+'" oninput="D.amt=+this.value"></label>'+
+ '<label>Date<input type="date" value="'+D.date+'" oninput="D.date=this.value"></label>'+
+ '<label>Category<select onchange="D.cat=this.value">'+CATS.map(function(c){return '<option'+(D.cat===c?' selected':'')+'>'+c+'</option>'}).join('')+'</select></label>'+
+ '<label>Linked project (optional; freelance projects use freelance capital)<select onchange="D.pid=this.value"><option value="">General business expense</option>'+S.projects.map(function(p){return '<option value="'+p.id+'"'+(D.pid===p.id?' selected':'')+'>'+esc(p.client||'Unnamed')+(p.title?' – '+esc(p.title):'')+(p.f?' (freelance)':'')+'</option>'}).join('')+'</select></label>'+
+ '<button class="btn p" onclick="saveExp()">Save expense</button>'+(isNew?'':'<button class="btn d" id="de" onclick="delExp()">Delete expense</button>')+'<button class="btn" onclick="closeSheet()">Cancel</button>');
+}
+function saveExp(){
+ var i=S.expenses.findIndex(function(e){return e.id===D.id});
+ if(i<0)S.expenses.push(D);else S.expenses[i]=D;
+ save();closeSheet();render();
+}
+function delExp(){
+ if(armed!=='e'){armed='e';$('#de').textContent='Tap again to delete this expense';return}
+ armed='';
+ S.tomb=S.tomb||{};S.tomb[D.id]=Date.now();
+ S.expenses=S.expenses.filter(function(e){return e.id!==D.id});
+ save();closeSheet();render();
+}
+
+function exp(){exp2();return;
+ var j=JSON.stringify(S);
+ try{navigator.clipboard.writeText(j).then(function(){alert('Backup copied. Paste it into Notes or email it to yourself.')},function(){prompt('Copy this backup:',j)})}catch(e){prompt('Copy this backup:',j)}
+}
+function imp(){imp2();return;
+ var j=prompt('Paste your backup here. Records are added or updated. Nothing is deleted.');
+ if(!j)return;
+ try{var d=JSON.parse(j);if(!d.projects||!d.expenses)throw 0;S=d;mig();save();render()}catch(e){alert('That backup could not be read.')}
+}
+M=ymd(new Date()).slice(0,7);
+render();
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+window.addEventListener('online',function(){syncNow(false)});
+window.addEventListener('offline',function(){setSS('Offline. Changes are saved on this device and will sync when you are back online.')});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)syncNow(false)});
+setInterval(function(){syncNow(false)},120000);
+setTimeout(function(){syncNow(false)},800);
+</script>
+</body>
+</html>
