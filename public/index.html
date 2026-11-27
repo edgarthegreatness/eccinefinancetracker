@@ -117,7 +117,7 @@ nav button.on{color:var(--text);box-shadow:inset 0 2px 0 var(--text)}
  body{padding-left:230px;padding-bottom:40px}
  nav{top:0;bottom:auto;right:auto;width:230px;height:100%;flex-direction:column;justify-content:flex-start;padding:96px 0 24px;border-top:0;border-right:1px solid var(--line)}
  nav::before{content:"EC";position:absolute;top:28px;left:24px;font:700 24px "Space Grotesk",Inter,sans-serif;letter-spacing:.24em;color:var(--text)}
- nav button{text-align:left;padding:15px 24px;font-size:12px}
+ nav button{flex:none;text-align:left;padding:15px 24px;font-size:12px}
  nav button.on{box-shadow:inset 3px 0 0 var(--text);background:var(--accentbg)}
  header,main{max-width:1040px;padding-left:40px;padding-right:40px}
  header h1{font-size:24px}
@@ -173,6 +173,77 @@ main{counter-reset:rowno}
 .panel h2{font-size:30px;font-weight:800;letter-spacing:-.05em;line-height:1;text-transform:uppercase}
 nav button{font-weight:600;letter-spacing:.12em}
 @media (min-width:900px){nav::before{content:"EC CINE";font:800 20px "Inter Tight",Inter,sans-serif;letter-spacing:-.02em}header h1{font-size:64px}.hero b{font-size:84px}}
+
+/* ---- pop layer: gold accent, motion, progress, pipeline, chart, toasts ---- */
+:root{--gold:#a8740a;--goldsoft:#efe2c2;--goldink:#0b0b0b;--ok:#1f7a4d;--info:#3a5f8f;--warn:#a8740a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gold:#f0b429;--goldsoft:#2a2210;--goldink:#0b0b0b;--ok:#4cc38a;--info:#8fb3e6;--warn:#f0b429}}
+:root[data-theme="dark"]{--gold:#f0b429;--goldsoft:#2a2210;--goldink:#0b0b0b;--ok:#4cc38a;--info:#8fb3e6;--warn:#f0b429}
+header h1 span{color:var(--gold)}
+.hero{position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--gold) 0%,transparent 70%);opacity:.35;pointer-events:none}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--gold);width:0;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.bar.hbar{background:color-mix(in srgb,var(--bg) 22%,transparent);margin-top:16px;height:8px}
+.pct{font-size:11px;letter-spacing:.08em;color:var(--muted);margin-top:4px;display:block}
+.fab,.btn.p{background:var(--gold);border-color:var(--gold);color:var(--goldink)}
+nav button.on{color:var(--text);box-shadow:inset 0 3px 0 var(--gold)}
+@media (min-width:900px){nav button.on{box-shadow:inset 3px 0 0 var(--gold)}}
+.seg button.on{background:var(--gold);color:var(--goldink)}
+.chip{font-weight:700}
+.chip[data-s="Quoted"]{border-color:var(--info);color:var(--info);background:transparent}
+.chip[data-s="Retainer Fee Pending"]{border-color:var(--warn);color:var(--warn);background:transparent}
+.chip[data-s="Booked"],.chip[data-s="Confirmed"]{background:var(--gold);border-color:var(--gold);color:var(--goldink)}
+.chip[data-s="Shoot Complete"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.chip[data-s="Complete"]{background:var(--text);border-color:var(--text);color:var(--bg)}
+.chip[data-s="No Response"],.chip[data-s="Rejected"]{opacity:.6;text-decoration:line-through}
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:14px 0 4px}
+.pipe button{background:var(--accentbg);border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:left;color:var(--text);font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}
+.pipe button:active{transform:scale(.96)}
+@media (hover:hover){.pipe button:hover{border-color:var(--gold)}}
+.pipe b{display:block;font:800 26px/1 "Inter Tight",Inter,sans-serif;letter-spacing:-.04em}
+.pipe small{display:block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px;line-height:1.25}
+.pipe .hot{border-color:var(--gold);background:var(--goldsoft)}
+@media (max-width:420px){.pipe{gap:4px}.pipe button{padding:10px 4px;border-radius:10px}.pipe b{font-size:22px}.pipe small{font-size:8.5px;letter-spacing:.04em}}
+.next{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;margin-bottom:8px;cursor:pointer;background:var(--accentbg)}
+.next .when{flex:none;text-align:center;min-width:54px}
+.next .when b{display:block;font:800 28px/1 "Inter Tight",Inter,sans-serif;letter-spacing:-.04em;color:var(--gold)}
+.next .when small{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.next .what{min-width:0}.next .what .t{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chart{display:flex;align-items:flex-end;gap:8px;height:150px;padding:28px 4px 0;border-bottom:1px solid var(--line);position:relative}
+.chart .col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;position:relative;cursor:pointer;background:none;border:0;padding:0;font:inherit;color:inherit}
+.chart .col i{display:block;border-radius:4px 4px 0 0;background:var(--gold);opacity:.4;min-height:2px;transition:opacity .15s,height .8s cubic-bezier(.2,.8,.2,1)}
+.chart .col.cur i,.chart .col:hover i,.chart .col:focus-visible i{opacity:1}
+.chart .col .tip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:700;color:var(--text);opacity:0;pointer-events:none;transition:opacity .15s}
+.chart .col.cur .tip,.chart .col:hover .tip,.chart .col:focus-visible .tip{opacity:1}
+.chart .col:hover~.col.cur .tip{opacity:0}
+.chartx{display:flex;gap:8px;padding:6px 4px 0}.chartx span{flex:1;text-align:center;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.chartx span.cur{color:var(--text);font-weight:700}
+.tools2{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+.search{width:100%;padding:12px 16px!important;border:1px solid var(--line)!important;border-radius:99px!important;background:var(--accentbg)!important}
+.search:focus{border-color:var(--gold)!important}
+.fchips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.fchips button{flex:none;border:1px solid var(--line);background:none;color:var(--text);border-radius:99px;padding:7px 12px;font:600 11px "Inter Tight",Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.fchips button.on{background:var(--gold);border-color:var(--gold);color:var(--goldink)}
+.card .bar{height:4px;margin-top:12px}
+.card{transition:background .15s}
+@media (hover:hover){.card:hover{background:var(--accentbg)}}
+.card:active{background:var(--accentbg)}
+#toast{position:fixed;left:50%;bottom:calc(140px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:12px 14px 12px 18px;border-radius:99px;display:flex;gap:14px;align-items:center;font-size:14px;font-weight:600;z-index:40;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+#toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#toast button{background:var(--gold);color:var(--goldink);border:0;border-radius:99px;padding:7px 14px;font:700 12px "Inter Tight",Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+@media (min-width:900px){#toast{bottom:40px;margin-left:115px}}
+.panel>.btn.p{position:sticky;bottom:0;z-index:2;box-shadow:0 -8px 20px var(--bg)}
+#sheet{transition:background .2s}
+#sheet.open .panel{animation:up .28s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes rise{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+main.anim>*{animation:rise .4s cubic-bezier(.2,.8,.2,1) both}
+main.anim>*:nth-child(2){animation-delay:.04s}main.anim>*:nth-child(3){animation-delay:.08s}main.anim>*:nth-child(4){animation-delay:.12s}main.anim>*:nth-child(5){animation-delay:.16s}main.anim>*:nth-child(n+6){animation-delay:.2s}
+.btn,.fab,.seg button,nav button{transition:transform .12s,background .15s}
+.btn:active,.fab:active{transform:scale(.97)}
+.greet{font:800 13px "Inter Tight",Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:2px 0 12px}
+.greet b{color:var(--gold)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -187,6 +258,7 @@ nav button{font-weight:600;letter-spacing:.12em}
 <button data-t="give" onclick="go('give')">Giving</button>
 </nav>
 <div id="sheet" onclick="if(event.target===this)closeSheet()"><div class="panel" id="panel"></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
 <script>
 var armed='',W='proj',M='',SORT='new',KEY='ecc_books_v1',S={projects:[],expenses:[]},tab='home',D=null,isNew=false,kind='';
 try{var r=localStorage.getItem(KEY);if(r)S=JSON.parse(r)}catch(e){}
@@ -219,7 +291,8 @@ function totals(){
  return{rev:rev,rec:rec,out:rev-rec,costs:costs,tt:tt,given:given,left:tt-given,off:off,offGiven:offGiven,extra:rev*0.1,pay:rev*0.3,pool:pool,capital:pool-costs,n:av.length,sp:split(pool,costs,rev*0.1,rev*0.3)}
 }
 
-function go(t){tab=t;render()}
+var ANIM=true;
+function go(t){if(t!==tab){ANIM=true;window.scrollTo(0,0)}tab=t;render()}
 function render(){
  document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.t===tab)});
  var bn=attn().filter(function(x){return (x.k==='q'&&x.due)||x.k==='r'||new Date().getHours()>=21}).length;
@@ -228,14 +301,18 @@ function render(){
  document.querySelector('nav button[data-t="pend"]').textContent=pc?'Pending Dates ('+pc+')':'Pending Dates';
  $('#fab').style.display=(tab==='home'||tab==='give'||tab==='pend'||(tab==='work'&&W==='tasks'))?'none':'block';
  $('#fab').textContent=(tab==='work'&&W==='proj')?'+ New project':tab==='free'?'+ New freelance':'+ New expense';
- $('#main').innerHTML=tab==='home'?home():tab==='give'?giveTab():tab==='pend'?pendTab():tab==='free'?frSum()+projList(true):workTab();
+ var mn=$('#main');mn.classList.toggle('anim',ANIM);
+ mn.innerHTML=tab==='home'?home():tab==='give'?giveTab():tab==='pend'?pendTab():tab==='free'?frSum()+projList(true):workTab();
+ if(ANIM){countUp();ANIM=false}
+ requestAnimationFrame(function(){document.querySelectorAll('.bar i[data-w]').forEach(function(b){b.style.width=b.dataset.w+'%'});document.querySelectorAll('.chart i[data-h]').forEach(function(b){b.style.height=b.dataset.h+'%'})});
+ if(Q)filterQ(Q);
 }
 function home(){
  var t=totals();
- var h=ctrl()+'<div class="hero"><small>Total booked, '+plabel()+' ('+t.n+')</small><b class="num">'+fmt(t.rev*0.8)+'</b><div class="sub"><span>Received '+fmt(t.rec*0.8)+'</span><span>To collect '+fmt((t.rev-t.rec)*0.8)+'</span></div></div>'+yearBox()+bookedBox()+alloc(t);
+ var h=greet()+ctrl()+'<div class="hero"><small>Total booked, '+plabel()+' ('+t.n+')</small><b class="num" data-count="'+(t.rev*0.8)+'">'+fmt(t.rev*0.8)+'</b>'+bar(t.rev?t.rec/t.rev:0,'hbar')+'<div class="sub"><span>Received '+fmt(t.rec*0.8)+'</span><span>To collect '+fmt((t.rev-t.rec)*0.8)+'</span></div></div>'+pipeline()+nextUp()+chart()+yearBox()+bookedBox()+alloc(t);
  h+='<div class="grid">'+
- st('Tithe given',fmt(t.given)+' of '+fmt(t.tt))+
- st('Offering given',fmt(t.offGiven)+' of '+fmt(t.off))+
+ stp('Tithe given',fmt(t.given)+' of '+fmt(t.tt),t.tt?t.given/t.tt:0)+
+ stp('Offering given',fmt(t.offGiven)+' of '+fmt(t.off),t.off?t.offGiven/t.off:0)+
  st('Expenses (from capital)',fmt(t.costs))+
  st('Capital left after costs',fmt(t.sp.capL),t.sp.over>0?'bad':'good')+'</div>';
  h+=freeHome();
@@ -294,9 +371,9 @@ function attn(){
  out.sort(function(a,b){return (b.due?1:0)-(a.due?1:0)});
  return out;
 }
-function setS(id,s){S.projects.forEach(function(p){if(p.id===id){p.status=s;fixSt(p)}});save();render()}
-function depRcv(id){S.projects.forEach(function(p){if(p.id===id){p.depst='Received';if(!p.depdate)p.depdate=today();fixSt(p)}});save();render()}
-function fup(id){S.projects.forEach(function(p){if(p.id===id)p.fu=today()});save();render()}
+function setS(id,s){var st2=s;S.projects.forEach(function(p){if(p.id===id){p.status=s;fixSt(p);st2=p.status}});save();render();toast('Marked '+st2)}
+function depRcv(id){S.projects.forEach(function(p){if(p.id===id){p.depst='Received';if(!p.depdate)p.depdate=today();fixSt(p)}});save();render();toast('Deposit received. Project booked')}
+function fup(id){S.projects.forEach(function(p){if(p.id===id)p.fu=today()});save();render();toast('Follow-up logged')}
 function attnHome(){
  var L=attn();if(!L.length)return '';
  var eve=new Date().getHours()>=21,hasA=L.some(function(x){return x.k==='a'||x.k==='s'});
@@ -317,7 +394,7 @@ function tick(id,k,v){S.projects.forEach(function(p){if(p.id===id)p[k]=v});save(
 function giveTab(){
  var av=S.projects.filter(function(p){return availed(p)&&share(p)>0}).sort(function(a,b){var x=(a.tithe?1:0)+(a.offering?1:0),y=(b.tithe?1:0)+(b.offering?1:0);return x-y||(b.date||'').localeCompare(a.date||'')});
  var due=sum(av,tithe),tg=sum(av.filter(function(p){return p.tithe}),tithe),og=sum(av.filter(function(p){return p.offering}),tithe);
- var h=ctrl()+'<div class="grid">'+st('Tithe given',fmt(tg)+' of '+fmt(due))+st('Offering given',fmt(og)+' of '+fmt(due))+'</div>';
+ var h=ctrl()+'<div class="grid">'+stp('Tithe given',fmt(tg)+' of '+fmt(due),due?tg/due:0)+stp('Offering given',fmt(og)+' of '+fmt(due),due?og/due:0)+'</div>';
  if(!av.length)return h+'<div class="empty">No booked projects in this period.<br>Tithe and offering show up here once a quote is booked.</div>';
  return h+av.map(function(p){
   return '<div class="card" style="cursor:default"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(p.f?' (freelance)':'')+'</div><div class="s">'+esc(p.date)+'</div></div><b class="num">'+fmt(p.quote)+'</b></div>'+
@@ -647,10 +724,12 @@ function st(l,v,c){return '<div class="stat"><small>'+l+'</small><b class="num '
 function projList(f){
  var ov=(f==='ov0'||f==='ov1'),L=f==='pd'?S.projects.filter(isPd):ov?S.projects.filter(function(p){return share(p)>0&&availed(p)&&!!p.f===(f==='ov1')}):S.projects.filter(function(p){return !!p.f===!!f});
  if(!L.length)return '<div class="empty">No projects yet.<br>Add a client quote to start costing.</div>';
- return sortCtl()+L.slice().sort(sorter()).map(function(p){
+ var tl='';
+ if(!ov&&f!=='pd'){tl=fltCtl(L);L=L.filter(fsMatch)}
+ return tl+sortCtl()+(L.length?'':'<div class="empty">No projects with this status.</div>')+L.slice().sort(sorter()).map(function(p){
   var pr=((+p.quote||0)*(p.f?0.1:0.4))-cost(p),mg=(+p.quote||0)-cost(p),mp=+p.quote?Math.round(mg/(+p.quote)*100):0;
-  return '<div class="card" onclick="editProj(\''+p.id+'\')"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(p.f?' (freelance)':'')+'</div></div><span class="chip '+(availed(p)?'on':'')+'">'+p.status+'</span></div>'+(f==='pd'?pdMarks(p):'')+
-  dsc(p)+'<div class="meta">'+(p.edate?'<span>Shoot <b class="num">'+esc(p.edate)+(p.etime?' '+esc(p.etime):'')+'</b></span>':'')+(p.biz?'<span>'+esc(p.biz)+'</span>':'')+((p.days&&p.days.length)?'<span>'+(p.days.length+1)+' shoot days</span>':'')+(p.dep?'<span>Deposit <b class="num">'+fmt(p.dep)+'</b> '+(p.depst==='Received'?'received':'pending')+'</span>':'')+'<span>Quote <b class="num">'+fmt(p.quote)+'</b></span><span>Received <b class="num">'+fmt(p.received)+'</b></span><span>Cost <b class="num">'+fmt(cost(p))+'</b></span>'+'<span>Margin <b class="num '+(mg<0?'bad':'good')+'">'+fmt(mg)+' ('+mp+'%)</b></span>'+('<span>Capital left <b class="num '+(pr<0?'bad':'good')+'">'+fmt(pr)+'</b></span>')+''+('<span>Tithe <b class="num">'+fmt((+p.quote||0)*0.1)+'</b>'+(p.tithe?' ✓':'')+'</span><span>Offering <b class="num">'+fmt((+p.quote||0)*0.1)+'</b>'+(p.offering?' ✓':'')+'</span>')+'</div></div>'}).join('');
+  return '<div class="card" data-q="'+esc([p.client,p.company,p.title,p.desc,p.eloc,p.status,p.biz].join(' ').toLowerCase())+'" onclick="editProj(\''+p.id+'\')"><div class="top"><div><div class="t">'+cn(p)+'</div><div class="s">'+esc(p.title)+(p.f?' (freelance)':'')+'</div></div><span class="chip '+(availed(p)?'on':'')+'" data-s="'+esc(p.status)+'">'+p.status+'</span></div>'+(f==='pd'?pdMarks(p):'')+
+  dsc(p)+'<div class="meta">'+(p.edate?'<span>Shoot <b class="num">'+esc(p.edate)+(p.etime?' '+esc(p.etime):'')+'</b></span>':'')+(p.biz?'<span>'+esc(p.biz)+'</span>':'')+((p.days&&p.days.length)?'<span>'+(p.days.length+1)+' shoot days</span>':'')+(p.dep?'<span>Deposit <b class="num">'+fmt(p.dep)+'</b> '+(p.depst==='Received'?'received':'pending')+'</span>':'')+'<span>Quote <b class="num">'+fmt(p.quote)+'</b></span><span>Received <b class="num">'+fmt(p.received)+'</b></span><span>Cost <b class="num">'+fmt(cost(p))+'</b></span>'+'<span>Margin <b class="num '+(mg<0?'bad':'good')+'">'+fmt(mg)+' ('+mp+'%)</b></span>'+('<span>Capital left <b class="num '+(pr<0?'bad':'good')+'">'+fmt(pr)+'</b></span>')+''+('<span>Tithe <b class="num">'+fmt((+p.quote||0)*0.1)+'</b>'+(p.tithe?' ✓':'')+'</span><span>Offering <b class="num">'+fmt((+p.quote||0)*0.1)+'</b>'+(p.offering?' ✓':'')+'</span>')+'</div>'+(+p.quote?bar((+p.received||0)/(+p.quote))+'<span class="pct">'+Math.round(Math.min(1,(+p.received||0)/(+p.quote))*100)+'% collected</span>':'')+'</div>'}).join('');
 }
 function expList(){
  var tot=sum(S.expenses,function(e){return e.amt});
@@ -661,8 +740,8 @@ function expList(){
   return '<div class="card" onclick="editExp(\''+e.id+'\')"><div class="top"><div class="t">'+esc(e.desc||e.cat)+'</div><b class="num">'+fmt(e.amt)+'</b></div><div class="meta"><span>'+esc(e.date)+'</span><span>'+esc(e.cat)+'</span>'+(p?'<span>'+esc(p.client)+'</span>':'')+'</div></div>'}).join('');
 }
 
-function openSheet(h){armed='';$('#panel').innerHTML=h;$('#sheet').classList.add('open')}
-function closeSheet(){$('#sheet').classList.remove('open');D=null}
+function openSheet(h){armed='';$('#panel').innerHTML=h;$('#panel').scrollTop=0;$('#sheet').classList.add('open');document.body.style.overflow='hidden'}
+function closeSheet(){$('#sheet').classList.remove('open');document.body.style.overflow='';D=null}
 function add(){tab==='free'?newProj(true):(tab==='work'&&W==='proj')?newProj(false):newExp()}
 
 function newProj(f){D={f:!!f,id:uid(),client:'',title:'',date:today(),quote:0,received:0,status:'Quoted',depst:'Pending',tithe:false,items:[{name:'',cost:0}]};isNew=true;kind='p';projSheet()}
@@ -709,15 +788,18 @@ function saveProj(){
  fixSt(D);
  var i=S.projects.findIndex(function(p){return p.id===D.id});
  if(i<0)S.projects.push(D);else S.projects[i]=D;
- save();closeSheet();render();
+ var nw=isNew,nm=D.client||D.title||'Project';
+ save();closeSheet();render();toast((nw?'Added ':'Saved ')+nm);
 }
 function delProj(){
  if(armed!=='p'){armed='p';$('#dp').textContent='Tap again to delete this project';return}
  armed='';
+ var gone=JSON.parse(JSON.stringify(S.projects.filter(function(p){return p.id===D.id})[0]||D)),lk=S.expenses.filter(function(e){return e.pid===D.id}).map(function(e){return e.id});
  S.tomb=S.tomb||{};S.tomb[D.id]=Date.now();
  S.projects=S.projects.filter(function(p){return p.id!==D.id});
  S.expenses.forEach(function(e){if(e.pid===D.id)e.pid=''});
  save();closeSheet();render();
+ toast('Project deleted',function(){gone._u=Date.now()+1;delete S.tomb[gone.id];S.projects.push(gone);S.expenses.forEach(function(e){if(lk.indexOf(e.id)>=0)e.pid=gone.id});save();render();toast('Project restored')});
 }
 
 var CATS=['Crew','Equipment rental','Transport','Software','Food','Marketing','Other'];
@@ -735,14 +817,17 @@ function expSheet(){
 function saveExp(){
  var i=S.expenses.findIndex(function(e){return e.id===D.id});
  if(i<0)S.expenses.push(D);else S.expenses[i]=D;
- save();closeSheet();render();
+ var nw=isNew,a=D.amt;
+ save();closeSheet();render();toast((nw?'Expense added: ':'Expense saved: ')+fmt(a));
 }
 function delExp(){
  if(armed!=='e'){armed='e';$('#de').textContent='Tap again to delete this expense';return}
  armed='';
+ var goneE=JSON.parse(JSON.stringify(S.expenses.filter(function(e){return e.id===D.id})[0]||D));
  S.tomb=S.tomb||{};S.tomb[D.id]=Date.now();
  S.expenses=S.expenses.filter(function(e){return e.id!==D.id});
  save();closeSheet();render();
+ toast('Expense deleted',function(){goneE._u=Date.now()+1;delete S.tomb[goneE.id];S.expenses.push(goneE);save();render();toast('Expense restored')});
 }
 
 function exp(){exp2();return;
@@ -754,6 +839,62 @@ function imp(){imp2();return;
  if(!j)return;
  try{var d=JSON.parse(j);if(!d.projects||!d.expenses)throw 0;S=d;mig();save();render()}catch(e){alert('That backup could not be read.')}
 }
+
+/* ---- pop layer helpers ---- */
+var Q='',FS='';
+function bar(r,c){var w=Math.max(0,Math.min(100,Math.round((r||0)*100)));return '<div class="bar'+(c?' '+c:'')+'"><i data-w="'+w+'"></i></div>'}
+function stp(l,v,r,c){return '<div class="stat"><small>'+l+'</small><b class="num '+(c||'')+'">'+v+'</b>'+bar(r)+'</div>'}
+function buzz(){try{if(navigator.vibrate)navigator.vibrate(12)}catch(e){}}
+var TT=null,UNDO=null;
+function toast(m,undo){var t=$('#toast');if(!t)return;UNDO=undo||null;t.innerHTML='<span>'+esc(m)+'</span>'+(undo?'<button onclick="var u=UNDO;UNDO=null;hideToast();if(u)u()">Undo</button>':'');t.classList.add('on');buzz();clearTimeout(TT);TT=setTimeout(hideToast,undo?6000:2400)}
+function hideToast(){var t=$('#toast');if(t)t.classList.remove('on')}
+function countUp(){
+ try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return}catch(e){}
+ document.querySelectorAll('[data-count]').forEach(function(el){var v=+el.dataset.count||0,t0=performance.now(),d=900;if(!v)return;
+  function f(t){var k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=fmt(v*e);if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)});
+}
+function greet(){var h=new Date().getHours(),g=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+ var n=attn().filter(function(x){return (x.k==='q'&&x.due)||x.k==='r'}).length;
+ return '<div class="greet">'+g+(n?'. <b>'+n+' thing'+(n===1?'':'s')+'</b> need'+(n===1?'s':'')+' you today':'. You are all caught up')+'</div>'}
+var STG=[['Quoted','Quoted'],['Retainer Fee Pending','Retainer pending'],['Booked','Booked'],['Shoot Complete','Shoot done'],['Complete','Complete']];
+function stg(p){return p.status==='Confirmed'?'Booked':p.status}
+function pipeline(){
+ var c={};S.projects.forEach(function(p){if(p.f)return;var k=stg(p);c[k]=(c[k]||0)+1});
+ var due=attn().filter(function(x){return x.k==='q'&&x.due&&!x.p.f}).length;
+ return '<h3>Agency pipeline</h3><div class="pipe">'+STG.map(function(s){var n=c[s[0]]||0,hot=(s[0]==='Quoted'&&due)||(s[0]==='Retainer Fee Pending'&&n);
+  return '<button class="'+(hot?'hot':'')+'" onclick="FS=\''+s[0]+'\';W=\'proj\';go(\'work\')"><b class="num">'+n+'</b><small>'+s[1]+(s[0]==='Quoted'&&due?' · '+due+' to follow up':'')+'</small></button>'}).join('')+'</div>';
+}
+function upcoming(){
+ var td=today(),out=[];
+ S.projects.forEach(function(p){if(!(availed(p)||p.status==='Retainer Fee Pending'))return;
+  if(p.edate&&p.edate>=td&&!p.mdone)out.push({p:p,d:p.edate,t:p.etime,l:p.eloc,n:'Main shoot'});
+  (p.days||[]).forEach(function(x){if(x.date&&x.date>=td&&!x.done)out.push({p:p,d:x.date,t:x.etime,l:x.loc,n:x.desc||'Additional shoot'})})});
+ return out.sort(function(a,b){return (a.d+(a.t||'')).localeCompare(b.d+(b.t||''))});
+}
+function nextUp(){
+ var L=upcoming().slice(0,3);if(!L.length)return '';
+ return '<h3>Up next</h3>'+L.map(function(x){var n=-days(x.d),p=x.p;
+  var w=n===0?'<b>Now</b><small>Today</small>':n===1?'<b>1</b><small>Tomorrow</small>':'<b class="num">'+n+'</b><small>days</small>';
+  return '<div class="next" onclick="editProj(\''+p.id+'\')"><div class="when">'+w+'</div><div class="what"><div class="t">'+esc(p.company||p.client||'Project')+(p.title?' · '+esc(p.title):'')+'</div><div class="s">'+esc(x.n)+' · '+esc(dlabel(x.d))+(x.t?' '+esc(x.t):'')+(x.l?' · '+esc(x.l):'')+'</div></div></div>'}).join('');
+}
+function chart(){
+ var now=new Date(),ms=[];for(var i=-3;i<=2;i++)ms.push(ymd(new Date(now.getFullYear(),now.getMonth()+i,1)).slice(0,7));
+ var keep=M,vals=ms.map(function(m){M=m;var v=sum(S.projects.filter(function(p){return availed(p)&&share(p)>0}),sq)*0.8;return v});M=keep;
+ if(!vals.some(function(v){return v>0}))return '';
+ var mx=Math.max.apply(null,vals),cm=ymd(now).slice(0,7),sel=(M&&M.length===7)?M:cm;
+ function ml(m){var a=m.split('-');return new Date(+a[0],+a[1]-1,1).toLocaleString('en-PH',{month:'short'})}
+ return '<h3>Bookings by month</h3><div class="chart" role="img" aria-label="Booked amount per month, after tithe and offering">'+ms.map(function(m,i){
+  return '<button class="col'+(m===sel?' cur':'')+'" title="'+esc(mlabel(m)+': '+fmt(vals[i]))+'" onclick="M=\''+m+'\';render()"><span class="tip num">'+fmt(vals[i]).replace(/\.00$/,'')+'</span><i data-h="'+(mx?Math.max(1,Math.round(vals[i]/mx*100)):1)+'" style="height:0"></i></button>'}).join('')+'</div><div class="chartx">'+ms.map(function(m){return '<span class="'+(m===sel?'cur':'')+'">'+ml(m)+'</span>'}).join('')+'</div><p class="pct" style="margin-top:8px">Tap a month to see it. After tithe and offering, spread by shoot days.</p>';
+}
+function fsMatch(p){if(!FS)return true;if(FS==='Other')return p.status==='No Response'||p.status==='Rejected';return stg(p)===FS}
+function fltCtl(L){
+ var c={},o=0;L.forEach(function(p){var k=stg(p);c[k]=(c[k]||0)+1;if(p.status==='No Response'||p.status==='Rejected')o++});
+ var opts=[['','All ('+L.length+')']].concat(STG.filter(function(s){return c[s[0]]}).map(function(s){return [s[0],s[1]+' ('+c[s[0]]+')']}));if(o)opts.push(['Other','No reply / rejected ('+o+')']);
+ if(FS&&!opts.some(function(x){return x[0]===FS}))FS='';
+ return '<div class="tools2"><input class="search" type="search" placeholder="Search client, project, place" value="'+esc(Q)+'" oninput="filterQ(this.value)" aria-label="Search projects"><div class="fchips">'+opts.map(function(x){return '<button class="'+(FS===x[0]?'on':'')+'" onclick="FS=\''+x[0]+'\';render()">'+esc(x[1])+'</button>'}).join('')+'</div></div>';
+}
+function filterQ(v){Q=v;var q=v.trim().toLowerCase();document.querySelectorAll('#main .card[data-q]').forEach(function(c){c.style.display=!q||c.dataset.q.indexOf(q)>=0?'':'none'})}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&$('#sheet').classList.contains('open'))closeSheet();else if(e.key==='/'&&!$('#sheet').classList.contains('open')&&document.activeElement.tagName!=='INPUT'){var s=$('.search');if(s){e.preventDefault();s.focus()}}});
 M=ymd(new Date()).slice(0,7);
 render();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}

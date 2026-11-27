@@ -1,5 +1,5 @@
 // Network first, so a new deploy shows up right away. Falls back to the cache when offline.
-var CACHE = 'ec-tracker-sync-v1';
+var CACHE = 'ec-tracker-sync-v2';
 var SHELL = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', function (e) {
